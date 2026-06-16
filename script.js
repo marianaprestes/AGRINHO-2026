@@ -1,54 +1,289 @@
-/**
- * 2. Validação e Envio do Formulário de Contato
- * Processa o envio e exibe uma mensagem de sucesso diretamente na tela.
- */
-function initFormValidation() {
-    const form = document.querySelector('#contato form');
-    if (!form) return;
+// ==========================================
+// AGRO FORTE, FUTURO SUSTENTÁVEL
+// script.js
+// ==========================================
 
-    // Cria o elemento que exibirá o feedback na tela
-    const feedbackMessage = document.createElement('p');
-    feedbackMessage.style.marginTop = '15px';
-    feedbackMessage.style.fontWeight = 'bold';
-    feedbackMessage.style.textAlign = 'center';
-    feedbackMessage.style.transition = 'all 0.3s ease';
-    form.appendChild(feedbackMessage);
+document.addEventListener("DOMContentLoaded", () => {
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault(); // Impede o recarregamento da página
+    iniciarNavegacaoSuave();
+    iniciarBotaoSaibaMais();
+    iniciarAnimacoes();
+    iniciarFormulario();
+    iniciarQuiz();
 
-        const nome = document.getElementById('nome').value.trim();
-        const email = document.getElementById('email').value.trim();
+});
 
-        // Validação básica de segurança
-        if (nome === '' || email === '') {
-            feedbackMessage.innerText = 'Por favor, preencha todos os campos.';
-            feedbackMessage.style.color = '#e74c3c'; // Vermelho
-            return;
+// ==========================================
+// NAVEGAÇÃO SUAVE
+// ==========================================
+
+function iniciarNavegacaoSuave() {
+
+    const links = document.querySelectorAll("nav a");
+
+    links.forEach(link => {
+
+        link.addEventListener("click", (evento) => {
+
+            evento.preventDefault();
+
+            const destino = document.querySelector(
+                link.getAttribute("href")
+            );
+
+            if (destino) {
+
+                destino.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        });
+
+    });
+
+}
+
+// ==========================================
+// BOTÃO "SAIBA MAIS"
+// ==========================================
+
+function iniciarBotaoSaibaMais() {
+
+    const botao = document.querySelector("#home button");
+
+    if (!botao) return;
+
+    botao.addEventListener("click", () => {
+
+        const secaoEconomia =
+            document.querySelector("#economia");
+
+        secaoEconomia.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+// ==========================================
+// ANIMAÇÃO DAS SEÇÕES
+// ==========================================
+
+function iniciarAnimacoes() {
+
+    const secoes = document.querySelectorAll("section");
+
+    const observador = new IntersectionObserver(
+
+        (entradas) => {
+
+            entradas.forEach((entrada) => {
+
+                if (entrada.isIntersecting) {
+
+                    entrada.target.classList.add("mostrar");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.2
         }
 
-        // Estado de carregamento do botão
-        const submitButton = form.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
-        submitButton.innerText = 'Enviando...';
-        feedbackMessage.innerText = ''; // Limpa mensagens anteriores
+    );
 
-        // Simulação de envio assíncrono (1.5 segundos)
-        setTimeout(() => {
-            // Exibe a mensagem de sucesso na tela
-            feedbackMessage.innerText = `✨ Sucesso! Obrigado pelo contato, ${nome}. Sua mensagem foi enviada.`;
-            feedbackMessage.style.color = '#2ecc71'; // Verde
-            
-            // Reseta o formulário e o botão
-            form.reset();
-            submitButton.disabled = false;
-            submitButton.innerText = 'Enviar';
+    secoes.forEach((secao) => {
 
-            // Remove a mensagem da tela após 5 segundos
-            setTimeout(() => {
-                feedbackMessage.innerText = '';
-            }, 5000);
+        secao.classList.add("oculto");
+        observador.observe(secao);
 
-        }, 1500);
     });
+
 }
+
+// ==========================================
+// FORMULÁRIO DE CONTATO
+// ==========================================
+
+function iniciarFormulario() {
+
+    const formulario = document.querySelector("form");
+
+    if (!formulario) return;
+
+    formulario.addEventListener("submit", (evento) => {
+
+        evento.preventDefault();
+
+        const nome =
+            document.getElementById("nome").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        if (nome.length < 3) {
+
+            alert("Digite um nome válido.");
+            return;
+
+        }
+
+        if (!validarEmail(email)) {
+
+            alert("Digite um e-mail válido.");
+            return;
+
+        }
+
+        alert(
+            `Obrigado pelo contato, ${nome}! Sua mensagem foi enviada com sucesso.`
+        );
+
+        formulario.reset();
+
+    });
+
+}
+
+function validarEmail(email) {
+
+    const regex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    return regex.test(email);
+
+}
+
+// ==========================================
+// QUIZ DE SUSTENTABILIDADE
+// ==========================================
+
+function iniciarQuiz() {
+
+    const tituloQuiz = Array.from(
+        document.querySelectorAll("section h2")
+    ).find(
+        titulo =>
+            titulo.textContent.includes("Quiz")
+    );
+
+    if (!tituloQuiz) return;
+
+    const secaoQuiz = tituloQuiz.parentElement;
+
+    const quizHTML = `
+
+        <div class="quiz-container">
+
+            <h3>Teste seus conhecimentos</h3>
+
+            <p>
+                Qual destas práticas ajuda a preservar
+                a fertilidade do solo?
+            </p>
+
+            <button class="quiz-btn" data-correta="true">
+                Rotação de culturas
+            </button>
+
+            <button class="quiz-btn">
+                Desmatamento
+            </button>
+
+            <button class="quiz-btn">
+                Queimadas frequentes
+            </button>
+
+            <p id="resultadoQuiz"></p>
+
+        </div>
+
+    `;
+
+    secaoQuiz.insertAdjacentHTML(
+        "beforeend",
+        quizHTML
+    );
+
+    const botoes =
+        document.querySelectorAll(".quiz-btn");
+
+    const resultado =
+        document.getElementById("resultadoQuiz");
+
+    botoes.forEach((botao) => {
+
+        botao.addEventListener("click", () => {
+
+            if (
+                botao.dataset.correta === "true"
+            ) {
+
+                resultado.textContent =
+                    "✅ Resposta correta!";
+
+            } else {
+
+                resultado.textContent =
+                    "❌ Resposta incorreta.";
+
+            }
+
+        });
+
+    });
+
+}
+
+// ==========================================
+// BOTÃO VOLTAR AO TOPO
+// ==========================================
+
+const botaoTopo = document.createElement("button");
+
+botaoTopo.textContent = "↑";
+botaoTopo.id = "btnTopo";
+
+document.body.appendChild(botaoTopo);
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 400) {
+
+        botaoTopo.style.display = "block";
+
+    } else {
+
+        botaoTopo.style.display = "none";
+
+    }
+
+});
+
+botaoTopo.addEventListener("click", () => {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+// ==========================================
+// MENSAGEM DE BOAS-VINDAS
+// ==========================================
+
+window.addEventListener("load", () => {
+
+    console.log(
+        "Bem-vindo ao Agro Forte, Futuro Sustentável!"
+    );
+
+});
