@@ -161,24 +161,6 @@ footer {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-```css
-.banner-img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.section-img {
-    width: 100%;
-    max-width: 700px;
-    display: block;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
 .banner-img { 
     width: 100%;
     max-height: 500px;
