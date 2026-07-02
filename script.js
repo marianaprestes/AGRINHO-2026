@@ -1,17 +1,13 @@
-// Aguarda o HTML estar totalmente carregado antes de rodar
 document.addEventListener('DOMContentLoaded', () => {
     console.log('✅ DOM carregado — iniciando scripts');
 
-    /* ============================
-       MENU MOBILE
-    ============================ */
+    /* MENU MOBILE */
     const menuToggle = document.querySelector('.menu-toggle');
     const navList = document.querySelector('.nav-list');
 
     if (menuToggle && navList) {
         menuToggle.addEventListener('click', () => {
             navList.classList.toggle('active');
-            console.log('Menu mobile alternado');
         });
 
         document.querySelectorAll('.nav-list a').forEach(link => {
@@ -21,16 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ============================
-       GRÁFICO COM DADOS REAIS
-       Fonte: Embrapa / Plano ABC+ (2023)
-    ============================ */
+    /* GRÁFICO - DADOS REAIS EMBRAPA */
     const canvas = document.getElementById('meuGrafico');
 
     if (canvas) {
-        // Verifica se o Chart.js foi carregado
         if (typeof Chart === 'undefined') {
-            console.error('❌ Chart.js não carregou! Verifique sua conexão com a internet.');
+            console.error('❌ Chart.js não carregou!');
             canvas.parentElement.innerHTML = '<p style="text-align:center;color:#d32f2f;padding:20px;">⚠ Não foi possível carregar o gráfico. Verifique sua conexão.</p>';
         } else {
             console.log('✅ Chart.js carregado — renderizando gráfico');
@@ -107,13 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
-    } else {
-        console.error('❌ Canvas do gráfico não encontrado no HTML');
     }
 
-    /* ============================
-       CONTADORES ANIMADOS
-    ============================ */
+    /* CONTADORES */
     const stats = document.querySelectorAll('.stat-number');
 
     const animarContador = (el) => {
@@ -146,9 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stats.forEach(stat => observer.observe(stat));
     }
 
-    /* ============================
-       FLASHCARDS (VERSÃO SIMPLES E FUNCIONAL)
-    ============================ */
+    /* FLASHCARDS */
     const flashcards = document.querySelectorAll('.flashcard');
     console.log(`🔎 Encontrados ${flashcards.length} flashcards`);
 
@@ -156,10 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', function(e) {
             e.preventDefault();
             this.classList.toggle('flipped');
-            console.log(`Flashcard ${index + 1} virado. Classe atual:`, this.className);
+            console.log(`Flashcard ${index + 1} virado`);
         });
 
-        // Acessibilidade com teclado
         card.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -168,9 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ============================
-       FORMULÁRIO PROFISSIONAL
-    ============================ */
+    /* FORMULÁRIO */
     const form = document.getElementById('formContato');
     const feedback = document.getElementById('formFeedback');
 
@@ -230,4 +213,44 @@ document.addEventListener('DOMContentLoaded', () => {
             if (valor.length === 0) { mostrarErro(mensagemInput, erroMensagem, 'A mensagem é obrigatória.'); return false; }
             if (valor.length < 10) { mostrarErro(mensagemInput, erroMensagem, `Escreva pelo menos 10 caracteres (atual: ${valor.length}).`); return false; }
             mostrarSucesso(mensagemInput, erroMensagem);
-            return true
+            return true;
+        }
+
+        nomeInput.addEventListener('input', validarNome);
+        emailInput.addEventListener('input', validarEmail);
+        mensagemInput.addEventListener('input', validarMensagem);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nomeOk = validarNome();
+            const emailOk = validarEmail();
+            const msgOk = validarMensagem();
+
+            feedback.className = 'form-feedback';
+            feedback.textContent = '';
+
+            if (nomeOk && emailOk && msgOk) {
+                const nome = nomeInput.value.trim();
+                feedback.classList.add('success');
+                feedback.innerHTML = `✅ Obrigado, <strong>${nome}</strong>! Sua mensagem foi recebida 🌱`;
+                form.reset();
+                [nomeInput, emailInput, mensagemInput].forEach(i => i.classList.remove('valido', 'invalido'));
+                [erroNome, erroEmail, erroMensagem].forEach(s => { s.textContent = ''; s.classList.remove('ativo', 'sucesso'); });
+                setTimeout(() => { feedback.className = 'form-feedback'; feedback.textContent = ''; }, 6000);
+            } else {
+                feedback.classList.add('error');
+                feedback.textContent = '❌ Corrija os campos destacados antes de enviar.';
+            }
+        });
+    }
+
+    /* SCROLL HEADER */
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (header) {
+            header.style.boxShadow = window.scrollY > 50
+                ? '0 4px 20px rgba(0,0,0,0.15)'
+                : '0 4px 20px rgba(0,0,0,0.08)';
+        }
+    });
+});
