@@ -666,4 +666,27 @@ body {
     .stat-number {
         font-size: 2.2rem;
     }
+   /* ============================
+   FEEDBACK VISUAL DO FORMULÁRIO
+============================ */
+.form-group input.valido,
+.form-group textarea.valido {
+    border-color: var(--verde-medio);
+    background: #f1f8e9;
+}
+
+.form-group input.invalido,
+.form-group textarea.invalido {
+    border-color: #d32f2f;
+    background: #ffebee;
+}
+
+.error-msg.ativo {
+    color: #d32f2f;
+    font-weight: 500;
+}
+
+.error-msg.sucesso {
+    color: var(--verde-medio);
+    font-weight: 500;
 }
