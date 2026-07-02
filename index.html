@@ -1,280 +1,418 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Agrinho - Agro Forte, Futuro Sustentável</title>
-
+    <meta name="description" content="Agro forte, futuro sustentável - Programa Agrinho">
+    <title>Agrinho | Agro Forte, Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <!-- Chart.js para o gráfico -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
-
 <body>
 
-<header>
-
-    <h1>🌱 AGRINHO 2026</h1>
-
-    <nav>
-
-        <a href="#inicio">Início</a>
-        <a href="#agro">Agro</a>
-        <a href="#sustentabilidade">Sustentabilidade</a>
-        <a href="#grafico">Gráfico</a>
-        <a href="#curiosidades">Flashcards</a>
-        <a href="#contato">Contato</a>
-
-    </nav>
-
-</header>
-
-<section class="hero" id="inicio">
-
-    <div>
-
-        <h2>Agro Forte,<br> Futuro Sustentável</h2>
-
-        <p>
-            O agronegócio é responsável por alimentar milhões de pessoas e,
-            quando aliado à sustentabilidade, garante um futuro melhor para
-            as próximas gerações.
-        </p>
-
-        <a href="#agro" class="botao">Saiba Mais</a>
-
-    </div>
-
-    <img src="assets/fazendeiro.jpeg">
-
-</section>
-
-<section id="agro">
-
-<h2 class="titulo">A importância do Agro</h2>
-
-<div class="conteudo">
-
-<img src="assets/plantacao.jpeg">
-
-<div>
-
-<p>
-
-O agronegócio representa uma das principais atividades econômicas do Brasil.
-Além da produção de alimentos, também fornece matéria-prima para diversos setores,
-gera milhões de empregos e contribui significativamente para a economia nacional.
-
-</p>
-
-<p>
-
-Com novas tecnologias, agricultura de precisão, irrigação inteligente e uso de
-energia renovável, o campo está se tornando cada vez mais eficiente e sustentável.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="sustentabilidade">
-
-<h2 class="titulo">Sustentabilidade no Campo</h2>
-
-<div class="conteudo reverso">
-
-<div>
-
-<p>
-
-Produzir mais sem prejudicar o meio ambiente é um dos maiores desafios da atualidade.
-
-Entre as práticas sustentáveis destacam-se:
-
-</p>
-
-<ul>
-
-<li>🌿 Preservação das matas ciliares.</li>
-
-<li>💧 Uso consciente da água.</li>
-
-<li>☀ Energia solar nas propriedades.</li>
-
-<li>🚜 Agricultura de precisão.</li>
-
-<li>♻ Rotação de culturas.</li>
-
-<li>🌱 Recuperação do solo.</li>
-
-</ul>
-
-</div>
-
-<img src="assets/sustentabilidade.jpeg">
-
-</div>
-
-</section>
-
-<section id="grafico">
-
-<h2 class="titulo">Produção Brasileira de Grãos</h2>
-
-<p class="centro">
-
-Dados aproximados da CONAB (milhões de toneladas).
-
-</p>
-
-<div class="grafico">
-
-<canvas id="graficoGraos"></canvas>
-
-</div>
-
-</section>
-
-<section id="curiosidades">
-
-<h2 class="titulo">Flashcards</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<div class="frente">
-
-🌾
-
-<h3>Você sabia?</h3>
-
-</div>
-
-<div class="tras">
-
-O Brasil está entre os maiores produtores de alimentos do mundo.
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="frente">
-
-💧
-
-<h3>Economia de Água</h3>
-
-</div>
-
-<div class="tras">
-
-A irrigação por gotejamento reduz bastante o desperdício de água.
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="frente">
-
-🌳
-
-<h3>Florestas</h3>
-
-</div>
-
-<div class="tras">
-
-Áreas de preservação ajudam na biodiversidade e na proteção dos rios.
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="frente">
-
-☀
-
-<h3>Energia Limpa</h3>
-
-</div>
-
-<div class="tras">
-
-Cada vez mais fazendas utilizam energia solar.
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="planta">
-
-<div class="conteudo">
-
-<img src="assets/planta.jpeg">
-
-<div>
-
-<h2>Cultivar hoje para colher amanhã</h2>
-
-<p>
-
-Cada pequena atitude sustentável contribui para um planeta mais saudável.
-O futuro depende das escolhas feitas no presente.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="contato">
-
-<h2 class="titulo">Entre em contato</h2>
-
-<form id="formulario">
-
-<input type="text" placeholder="Seu nome" required>
-
-<input type="email" placeholder="Seu e-mail" required>
-
-<textarea placeholder="Mensagem" required></textarea>
-
-<button>Enviar</button>
-
-</form>
-
-</section>
-
-<footer>
-
-<p>
-
-Projeto desenvolvido para o Programa Agrinho • Agro Forte, Futuro Sustentável
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
-
+    <!-- ============ HEADER / NAVEGAÇÃO ============ -->
+    <header class="header" id="home">
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🌱</span>
+                <span class="logo-text">Agrinho</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#pilares">Pilares</a></li>
+                <li><a href="#dados">Dados</a></li>
+                <li><a href="#flashcards">Aprenda</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-tag">Programa Agrinho • Educação & Sustentabilidade</p>
+            <h1 class="hero-title">Agro Forte,<br><span class="highlight">Futuro Sustentável</span></h1>
+            <p class="hero-subtitle">
+                Cultivando conhecimento no campo e na cidade para construir um planeta
+                mais justo, produtivo e em harmonia com a natureza.
+            </p>
+            <div class="hero-buttons">
+                <a href="#sobre" class="btn btn-primary">Conheça o Programa</a>
+                <a href="#flashcards" class="btn btn-secondary">Aprenda com Flashcards</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="assets/fazendeiro.jpeg" alt="Fazendeiro representando o agro brasileiro">
+        </div>
+    </section>
+
+    <!-- ============ SOBRE ============ -->
+    <section class="section sobre" id="sobre">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SOBRE O PROGRAMA</span>
+                <h2>O que é o Agrinho?</h2>
+                <p class="section-subtitle">
+                    O maior programa de responsabilidade social do Paraná, presente em
+                    mais de 399 municípios.
+                </p>
+            </div>
+            <div class="sobre-grid">
+                <div class="sobre-text">
+                    <p>
+                        O <strong>Agrinho</strong> é um programa educativo realizado desde
+                        <strong>1995</strong> pelo Sistema FAEP (Federação da Agricultura do
+                        Estado do Paraná), em parceria com diversas instituições públicas e
+                        privadas. Seu objetivo é levar temas de <em>saúde, segurança pessoal,
+                        meio ambiente e relações humanas</em> para crianças da educação infantil
+                        e do ensino fundamental.
+                    </p>
+                    <p>
+                        A cada ano, um novo tema é trabalhado nas escolas — e em 2025/2026 o
+                        foco é <strong>"Agro forte, futuro sustentável"</strong>: mostrar como
+                        a agricultura moderna pode gerar riqueza, empregos e alimentos,
+                        preservando os recursos naturais para as próximas gerações.
+                    </p>
+                    <div class="stats-row">
+                        <div class="stat">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Anos de história</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">399</span>
+                            <span class="stat-label">Municípios atendidos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2M+</span>
+                            <span class="stat-label">Crianças impactadas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sobre-image">
+                    <img src="assets/planta.jpeg" alt="Planta brotando simbolizando o futuro sustentável">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PILARES ============ -->
+    <section class="section pilares" id="pilares">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PILARES DA SUSTENTABILIDADE</span>
+                <h2>Um agro que produz e preserva</h2>
+                <p class="section-subtitle">
+                    A agricultura sustentável se apoia em quatro grandes pilares que
+                    garantem equilíbrio entre produção, pessoas e planeta.
+                </p>
+            </div>
+            <div class="pilares-grid">
+                <article class="pilar-card">
+                    <div class="pilar-icon">🌍</div>
+                    <h3>Meio Ambiente</h3>
+                    <p>
+                        Uso racional da água, proteção do solo, preservação de matas
+                        ciliares e adoção de técnicas como plantio direto e rotação de
+                        culturas.
+                    </p>
+                </article>
+                <article class="pilar-card">
+                    <div class="pilar-icon">💰</div>
+                    <h3>Economia</h3>
+                    <p>
+                        O agro representa cerca de 25% do PIB brasileiro. Produtividade
+                        com eficiência garante renda ao produtor e alimento à mesa de
+                        todos.
+                    </p>
+                </article>
+                <article class="pilar-card">
+                    <div class="pilar-icon">👨‍🌾</div>
+                    <h3>Social</h3>
+                    <p>
+                        Agricultura familiar responde por 70% dos alimentos que chegam
+                        à mesa dos brasileiros, gerando emprego e fixando o homem no
+                        campo.
+                    </p>
+                </article>
+                <article class="pilar-card">
+                    <div class="pilar-icon">🔬</div>
+                    <h3>Tecnologia</h3>
+                    <p>
+                        Drones, IoT, inteligência artificial e biotecnologia transformam
+                        o campo em um ambiente de inovação constante, reduzindo
+                        desperdícios.
+                    </p>
+                </article>
+            </div>
+
+            <div class="imagem-destaque">
+                <img src="assets/plantacao.jpeg" alt="Plantação sustentável representando a força do agro">
+                <div class="imagem-legenda">
+                    <strong>Plantação sustentável:</strong> tecnologia e natureza caminhando juntas.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DADOS / GRÁFICO ============ -->
+    <section class="section dados" id="dados">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">DADOS REAIS</span>
+                <h2>O agro brasileiro em números</h2>
+                <p class="section-subtitle">
+                    Dados oficiais sobre a evolução da agricultura sustentável e orgânica
+                    no Brasil — fontes: MAPA, IBGE e IFOAM.
+                </p>
+            </div>
+
+            <div class="graficos-grid">
+                <div class="grafico-card">
+                    <h3>📈 Evolução da área de agricultura orgânica no Brasil</h3>
+                    <p class="grafico-desc">Em milhões de hectares (dados consolidados)</p>
+                    <canvas id="graficoLinha"></canvas>
+                </div>
+                <div class="grafico-card">
+                    <h3>🥇 Principais produtos do agro brasileiro</h3>
+                    <p class="grafico-desc">Participação na produção nacional (safra 2024/25)</p>
+                    <canvas id="graficoPizza"></canvas>
+                </div>
+            </div>
+
+            <div class="curiosidades">
+                <div class="curiosidade">
+                    <span class="curiosidade-num">01</span>
+                    <p>O Brasil é o <strong>maior produtor mundial de café, laranja e cana-de-açúcar</strong>.</p>
+                </div>
+                <div class="curiosidade">
+                    <span class="curiosidade-num">02</span>
+                    <p>Temos <strong>60% do território coberto por vegetação nativa</strong>, a maior proporção entre países continentais.</p>
+                </div>
+                <div class="curiosidade">
+                    <span class="curiosidade-num">03</span>
+                    <p>O agro brasileiro é responsável por <strong>1 em cada 4 reais</strong> gerados no PIB.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FLASHCARDS ============ -->
+    <section class="section flashcards" id="flashcards">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">APRENDA BRINCANDO</span>
+                <h2>Flashcards da Sustentabilidade</h2>
+                <p class="section-subtitle">
+                    Clique em cada card para virar e descobrir conceitos importantes
+                    sobre agro sustentável.
+                </p>
+            </div>
+
+            <div class="flashcards-grid">
+                <div class="flashcard" tabindex="0">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="flashcard-emoji">🌾</span>
+                            <h4>Plantio Direto</h4>
+                            <small>Clique para virar</small>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>
+                                Técnica em que o solo não é arado. A palhada da colheita
+                                anterior protege a terra, mantém a umidade e evita erosão.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" tabindex="0">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="flashcard-emoji">🔄</span>
+                            <h4>Rotação de Culturas</h4>
+                            <small>Clique para virar</small>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>
+                                Alternar diferentes plantas na mesma área melhora a
+                                fertilidade do solo e reduz pragas sem uso excessivo de
+                                agrotóxicos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" tabindex="0">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="flashcard-emoji">💧</span>
+                            <h4>Irrigação Inteligente</h4>
+                            <small>Clique para virar</small>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>
+                                Uso de sensores e gotejamento para aplicar apenas a
+                                água necessária, economizando até 60% em relação a
+                                métodos tradicionais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" tabindex="0">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="flashcard-emoji">🐝</span>
+                            <h4>Polinização</h4>
+                            <small>Clique para virar</small>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>
+                                Abelhas e outros insetos são essenciais para a
+                                reprodução de 75% das culturas agrícolas. Preservá-los
+                                é garantir alimento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" tabindex="0">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="flashcard-emoji">🌳</span>
+                            <h4>ILPF</h4>
+                            <small>Clique para virar</small>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>
+                                Integração Lavoura-Pecuária-Floresta: sistema que une
+                                agricultura, criação de animais e árvores na mesma área,
+                                aumentando a produtividade.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" tabindex="0">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="flashcard-emoji">♻️</span>
+                            <h4>Agroenergia</h4>
+                            <small>Clique para virar</small>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>
+                                Produção de energia a partir de biomassa (biogás,
+                                biodiesel, etanol), transformando resíduos em
+                                combustível limpo e renovável.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SUSTENTABILIDADE ============ -->
+    <section class="section sustentabilidade">
+        <div class="container">
+            <div class="sust-grid">
+                <div class="sust-image">
+                    <img src="assets/sustentabilidade.jpeg" alt="Sustentabilidade no campo">
+                </div>
+                <div class="sust-text">
+                    <span class="section-tag">NOSSO COMPROMISSO</span>
+                    <h2>Sustentabilidade é plantar o amanhã</h2>
+                    <p>
+                        Ser sustentável no campo significa produzir hoje sem comprometer
+                        a capacidade das próximas gerações de produzirem também. É
+                        entender que <strong>o agro e a natureza não são inimigos</strong> —
+                        são parceiros.
+                    </p>
+                    <ul class="sust-list">
+                        <li>✅ Preservar nascentes e matas ciliares</li>
+                        <li>✅ Reduzir o uso de defensivos químicos</li>
+                        <li>✅ Valorizar o produtor rural e a agricultura familiar</li>
+                        <li>✅ Investir em educação ambiental nas escolas</li>
+                        <li>✅ Consumir alimentos da estação e de origem local</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section class="section contato" id="contato">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FALE CONOSCO</span>
+                <h2>Envie sua mensagem</h2>
+                <p class="section-subtitle">
+                    Tem uma ideia sustentável? Quer compartilhar sua experiência?
+                    Envie sua mensagem — toda voz conta na construção do futuro!
+                </p>
+            </div>
+
+            <form class="form" id="formContato" novalidate>
+                <div class="form-group">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                    <span class="error-msg" id="erroNome"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                    <span class="error-msg" id="erroEmail"></span>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua ideia, dúvida ou sugestão..." required></textarea>
+                    <span class="error-msg" id="erroMensagem"></span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">🌱 Enviar mensagem</button>
+                <div class="form-feedback" id="formFeedback"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>🌱 Agrinho</h4>
+                    <p>Agro forte, futuro sustentável. Um projeto escolar desenvolvido com carinho e consciência ambiental.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#pilares">Pilares</a></li>
+                        <li><a href="#flashcards">Flashcards</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Fontes</h4>
+                    <ul>
+                        <li>Sistema FAEP / Agrinho</li>
+                        <li>MAPA - Ministério da Agricultura</li>
+                        <li>EMBRAPA</li>
+                        <li>IBGE</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 - Trabalho escolar • Tema: Agro forte, futuro sustentável • Programa Agrinho</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
