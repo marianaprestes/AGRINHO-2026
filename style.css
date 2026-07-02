@@ -418,6 +418,9 @@ body {
     height: 220px;
     cursor: pointer;
     outline: none;
+    position: relative;          
+    transform-style: flat;
+
 }
 
 .flashcard-inner {
