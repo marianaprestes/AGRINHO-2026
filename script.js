@@ -95,10 +95,37 @@ document.querySelectorAll('.stats-grid').forEach(el => {
     observer.observe(el);
 });
 
-// Flashcards
+// Flashcards CORRIGIDOS
 function flipCard(card) {
+    // Previne múltiplos cliques durante a animação
+    if (card.classList.contains('flipping')) return;
+    
+    card.classList.add('flipping');
     card.classList.toggle('flipped');
+    
+    // Remove a classe flipping após a animação
+    setTimeout(() => {
+        card.classList.remove('flipping');
+    }, 600);
 }
+
+// Adiciona event listeners para todos os flashcards
+document.addEventListener('DOMContentLoaded', () => {
+    const flashcards = document.querySelectorAll('.flashcard');
+    
+    flashcards.forEach(card => {
+        // Clique com mouse
+        card.addEventListener('click', () => flipCard(card));
+        
+        // Teclado (Enter ou Espaço)
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                flipCard(card);
+            }
+        });
+    });
+});
 
 // Gráfico Chart.js
 const ctx = document.getElementById('agroChart').getContext('2d');
