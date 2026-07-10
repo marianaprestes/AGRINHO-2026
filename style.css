@@ -471,7 +471,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.25rem;
 }
 
-/* Flashcards */
+/* Flashcards CORRIGIDOS */
 .flashcards {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
@@ -484,8 +484,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .flashcard {
     perspective: 1000px;
-    height: 250px;
+    height: 280px;
     cursor: pointer;
+    outline: none;
+}
+
+.flashcard:focus {
+    outline: 3px solid var(--cor-secundaria);
+    border-radius: 20px;
 }
 
 .flashcard-inner {
@@ -506,6 +512,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -513,6 +520,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     padding: 2rem;
     box-shadow: var(--sombra);
+    text-align: center;
 }
 
 .flashcard-front {
@@ -539,6 +547,27 @@ h1, h2, h3, h4, h5, h6 {
 .flashcard h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+}
+
+.flashcard-back h3 {
+    color: var(--cor-branco);
+}
+
+.flashcard-back p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.flashcard-hint {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.flashcard:hover .flashcard-hint {
+    color: var(--cor-secundaria);
 }
 
 .benefits {
@@ -1110,6 +1139,10 @@ h1, h2, h3, h4, h5, h6 {
     
     .flashcards-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .flashcard {
+        height: 320px;
     }
     
     .pilares-grid {
