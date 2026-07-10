@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Agrinho - Agro forte, futuro sustentável. Programa educacional do SENAR promovendo sustentabilidade no campo.">
-    <title>Agrinho | Agro Forte, Futuro Sustentável</title>
+    <meta name="description" content="Agrinho - Agro forte, futuro sustentável. Programa de educação ambiental e social.">
+    <title>Agrinho - Agro Forte, Futuro Sustentável</title>
     
     <!-- Chart.js para gráficos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,99 +18,91 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Menu de Navegação Fixo -->
+    <!-- Navegação Fixa -->
     <nav class="navbar" id="navbar">
-        <div class="container nav-container">
+        <div class="nav-container">
             <div class="logo">
                 <i class="fas fa-seedling"></i>
                 <span>Agrinho</span>
             </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#inicio" class="nav-link">Início</a></li>
-                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#sobre" class="nav-link">O Programa</a></li>
                 <li><a href="#pilares" class="nav-link">Pilares</a></li>
-                <li><a href="#dados" class="nav-link">Dados</a></li>
+                <li><a href="#estatisticas" class="nav-link">Dados</a></li>
                 <li><a href="#flashcards" class="nav-link">Flashcards</a></li>
                 <li><a href="#galeria" class="nav-link">Galeria</a></li>
                 <li><a href="#contato" class="nav-link">Contato</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1 class="hero-title">Agro Forte, Futuro Sustentável</h1>
-            <p class="hero-subtitle">Transformando o campo brasileiro através da educação e inovação</p>
+        <div class="hero-content">
+            <h1 class="hero-title">Agro Forte,<br>Futuro Sustentável</h1>
+            <p class="hero-subtitle">Transformando o campo com educação, tecnologia e sustentabilidade desde 1995</p>
             <div class="hero-buttons">
                 <a href="#sobre" class="btn btn-primary">Conheça o Programa</a>
-                <a href="#flashcards" class="btn btn-secondary">Aprenda Jogando</a>
+                <a href="#flashcards" class="btn btn-secondary">Aprenda Brincando</a>
             </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Desde 1995</span>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>399 Municípios</span>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <span>Milhões de Alunos</span>
-                </div>
-            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
     <!-- Sobre o Agrinho -->
-    <section id="sobre" class="section sobre">
+    <section id="sobre" class="section sobre-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">O Programa Agrinho</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="sobre-content">
-                <div class="sobre-text">
-                    <h3>Educação que Transforma o Campo</h3>
-                    <p>O <strong>Agrinho</strong> é um programa educacional desenvolvido pelo SENAR (Serviço Nacional de Aprendizagem Rural) que há quase 30 anos promove a educação no campo, conectando estudantes à realidade do agronegócio sustentável.</p>
+            
+            <div class="sobre-grid">
+                <div class="sobre-content">
+                    <div class="info-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Desde 1995</h3>
+                        <p>Há mais de 28 anos educando para a sustentabilidade</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>399 Municípios</h3>
+                        <p>Presente em todo o estado, levando conhecimento</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Milhares de Alunos</h3>
+                        <p>Formando cidadãos conscientes e responsáveis</p>
+                    </div>
                     
-                    <div class="info-box">
-                        <h4><i class="fas fa-award"></i> Nossos Números</h4>
-                        <ul class="info-list">
-                            <li><i class="fas fa-check-circle"></i> Presente em <strong>399 municípios</strong> brasileiros</li>
-                            <li><i class="fas fa-check-circle"></i> Mais de <strong>25 anos</strong> de história</li>
-                            <li><i class="fas fa-check-circle"></i> Milhões de alunos impactados</li>
-                            <li><i class="fas fa-check-circle"></i> Parceria com escolas públicas e privadas</li>
-                        </ul>
-                    </div>
-
-                    <div class="case-real">
-                        <h4><i class="fas fa-user-farmer"></i> Caso Real: Fazenda Esperança</h4>
-                        <p><em>"O Agrinho mudou a forma como vejo a agricultura. Aprendi que é possível produzir alimentos de qualidade preservando o meio ambiente. Hoje aplico rotação de culturas e plantio direto na propriedade da minha família."</em></p>
-                        <p class="case-author">- João Silva, 16 anos, participante do Agrinho em Goiás</p>
-                    </div>
+                    <p class="sobre-text">
+                        O <strong>Agrinho</strong> é um programa socioeducativo que promove a reflexão sobre 
+                        sustentabilidade, cidadania e qualidade de vida no campo e na cidade. 
+                        Através de atividades pedagógicas, buscamos formar jovens conscientes 
+                        do seu papel na construção de um futuro melhor.
+                    </p>
                 </div>
                 <div class="sobre-image">
                     <img src="assets/fazendeiro.jpeg" alt="Agricultor no campo" class="img-main">
-                    <img src="assets/plantacao.jpeg" alt="Plantação sustentável" class="img-secondary">
+                    <img src="assets/planta.jpeg" alt="Planta crescendo" class="img-secondary">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pilares da Sustentabilidade -->
-    <section id="pilares" class="section pilares">
+    <section id="pilares" class="section pilares-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Os 4 Pilares da Sustentabilidade</h2>
-                <p class="section-subtitle">Conhecendo as bases do agronegócio sustentável</p>
+                <h2 class="section-title">4 Pilares da Sustentabilidade</h2>
+                <p class="section-subtitle">Conheça as bases do desenvolvimento sustentável no agro</p>
                 <div class="section-line"></div>
             </div>
             
@@ -120,249 +112,231 @@
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h3>Meio Ambiente</h3>
-                    <p>Preservação dos recursos naturais, conservação do solo e da água, e proteção da biodiversidade.</p>
+                    <p>Preservação dos recursos naturais, conservação do solo e da água, e proteção da biodiversidade para as futuras gerações.</p>
                     <ul class="pilar-list">
-                        <li>Manejo sustentável do solo</li>
-                        <li>Preservação de nascentes</li>
-                        <li>Redução de agrotóxicos</li>
+                        <li><i class="fas fa-check"></i> Plantio direto</li>
+                        <li><i class="fas fa-check"></i> Rotação de culturas</li>
+                        <li><i class="fas fa-check"></i> Preservação de nascentes</li>
                     </ul>
-                    <img src="assets/sustentabilidade.jpeg" alt="Sustentabilidade ambiental" class="pilar-img">
                 </div>
-
+                
                 <div class="pilar-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="pilar-icon economia">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Economia</h3>
-                    <p>Viabilidade econômica das propriedades rurais e geração de riqueza para o país.</p>
+                    <p>Geração de renda, desenvolvimento econômico local e valorização da produção agrícola familiar e empresarial.</p>
                     <ul class="pilar-list">
-                        <li>25% do PIB brasileiro</li>
-                        <li>Geração de empregos</li>
-                        <li>Exportação de commodities</li>
+                        <li><i class="fas fa-check"></i> 25% do PIB brasileiro</li>
+                        <li><i class="fas fa-check"></i> Geração de empregos</li>
+                        <li><i class="fas fa-check"></i> Exportação de alimentos</li>
                     </ul>
-                    <img src="assets/trigo.jpeg" alt="Economia rural" class="pilar-img">
                 </div>
-
+                
                 <div class="pilar-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="pilar-icon social">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-hands-helping"></i>
                     </div>
                     <h3>Social</h3>
-                    <p>Qualidade de vida no campo, inclusão social e valorização do trabalhador rural.</p>
+                    <p>Qualidade de vida no campo, educação, saúde e inclusão social das comunidades rurais.</p>
                     <ul class="pilar-list">
-                        <li>70% dos alimentos pela agricultura familiar</li>
-                        <li>Educação no campo</li>
-                        <li>Saúde rural</li>
+                        <li><i class="fas fa-check"></i> 70% dos alimentos</li>
+                        <li><i class="fas fa-check"></i> Agricultura familiar</li>
+                        <li><i class="fas fa-check"></i> Educação no campo</li>
                     </ul>
-                    <img src="assets/fazendeironocampo.jpeg" alt="Trabalhadores rurais" class="pilar-img">
                 </div>
-
+                
                 <div class="pilar-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="pilar-icon tecnologia">
                         <i class="fas fa-microchip"></i>
                     </div>
                     <h3>Tecnologia</h3>
-                    <p>Inovação, agricultura de precisão e digitalização do campo.</p>
+                    <p>Inovação, agricultura de precisão, automação e uso inteligente de recursos para maximizar a produção.</p>
                     <ul class="pilar-list">
-                        <li>Drones e sensores</li>
-                        <li>Agricultura 4.0</li>
-                        <li>Biotecnologia</li>
+                        <li><i class="fas fa-check"></i> Drones e satélites</li>
+                        <li><i class="fas fa-check"></i> Irrigação inteligente</li>
+                        <li><i class="fas fa-check"></i> Bioinsumos</li>
                     </ul>
-                    <img src="assets/planta.jpeg" alt="Tecnologia no campo" class="pilar-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Dados e Estatísticas com Gráfico -->
-    <section id="dados" class="section dados">
+    <!-- Estatísticas com Gráfico -->
+    <section id="estatisticas" class="section estatisticas-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Dados do Agronegócio Brasileiro</h2>
-                <p class="section-subtitle">Informações reais sobre o impacto do setor</p>
+                <h2 class="section-title">Agricultura em Números</h2>
+                <p class="section-subtitle">Dados reais sobre o agronegócio brasileiro</p>
                 <div class="section-line"></div>
             </div>
-
-            <div class="dados-container">
-                <div class="dados-texto">
-                    <h3>O Agro em Números</h3>
-                    <p>O agronegócio brasileiro é um dos mais desenvolvidos do mundo, combinando produtividade com sustentabilidade.</p>
+            
+            <div class="stats-grid">
+                <div class="stats-content">
+                    <div class="chart-container">
+                        <canvas id="agricultureChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="stats-info">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="25">0</div>
+                        <div class="stat-label">% do PIB Brasileiro</div>
+                        <p>O agronegócio representa mais de um quarto da economia nacional</p>
+                    </div>
                     
-                    <div class="stats-grid">
-                        <div class="stat-box">
-                            <span class="stat-number" data-target="25">0</span>
-                            <span class="stat-label">% do PIB</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" data-target="70">0</span>
-                            <span class="stat-label">% dos alimentos (agricultura familiar)</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" data-target="399">0</span>
-                            <span class="stat-label">Municípios com Agrinho</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number" data-target="1995">0</span>
-                            <span class="stat-label">Ano de criação</span>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="70">0</div>
+                        <div class="stat-label">% dos Alimentos</div>
+                        <p>Vêm da agricultura familiar, alimentando o Brasil</p>
                     </div>
-
-                    <div class="fonte-dados">
-                        <small><i class="fas fa-info-circle"></i> Fontes: SENAR, IBGE, Embrapa (2024)</small>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">Milhões de Empregos</div>
+                        <p>O setor emprega milhões de brasileiros em todo território</p>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="399">0</div>
+                        <div class="stat-label">Municípios</div>
+                        <p>Com o programa Agrinho presente e atuante</p>
                     </div>
                 </div>
-
-                <div class="dados-grafico">
-                    <canvas id="agroChart"></canvas>
-                </div>
+            </div>
+            
+            <div class="stats-sources">
+                <p><strong>Fontes:</strong> IBGE (2023), Embrapa, MAPA, CNA</p>
             </div>
         </div>
     </section>
 
-    <!-- Flashcards da Sustentabilidade -->
-    <section id="flashcards" class="section flashcards">
+    <!-- Flashcards Interativos -->
+    <section id="flashcards" class="section flashcards-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Flashcards da Sustentabilidade</h2>
-                <p class="section-subtitle">Clique nos cards para aprender conceitos importantes</p>
+                <p class="section-subtitle">Clique nos cards para aprender sobre práticas sustentáveis</p>
                 <div class="section-line"></div>
             </div>
-
-            <div class="flashcards-container">
-                <!-- Card 1 -->
+            
+            <div class="flashcards-grid">
+                <!-- Flashcard 1 -->
                 <div class="flashcard" onclick="flipCard(this)">
                     <div class="flashcard-inner">
                         <div class="flashcard-front">
-                            <i class="fas fa-seedling card-icon"></i>
+                            <i class="fas fa-tractor"></i>
                             <h3>Plantio Direto</h3>
-                            <p class="click-hint">Clique para virar</p>
+                            <p class="hint">Clique para virar</p>
                         </div>
                         <div class="flashcard-back">
                             <h3>Plantio Direto</h3>
-                            <p>Técnica que consiste em plantar sem revolver o solo, mantendo a palhada da cultura anterior na superfície.</p>
-                            <h4>Benefícios:</h4>
+                            <p>Técnica que não revolve o solo, mantendo palhada na superfície. Reduz erosão, conserva água e sequestra carbono.</p>
                             <ul>
-                                <li>✓ Reduz erosão do solo</li>
-                                <li>✓ Conserva a umidade</li>
-                                <li>✓ Aumenta matéria orgânica</li>
-                                <li>✓ Sequestra carbono</li>
+                                <li>✓ Menor erosão do solo</li>
+                                <li>✓ Economia de combustível</li>
+                                <li>✓ Mais matéria orgânica</li>
                             </ul>
-                            <img src="assets/plantacrescendo.jpeg" alt="Plantio direto" class="card-img">
                         </div>
                     </div>
                 </div>
-
-                <!-- Card 2 -->
+                
+                <!-- Flashcard 2 -->
                 <div class="flashcard" onclick="flipCard(this)">
                     <div class="flashcard-inner">
                         <div class="flashcard-front">
-                            <i class="fas fa-sync-alt card-icon"></i>
+                            <i class="fas fa-sync-alt"></i>
                             <h3>Rotação de Culturas</h3>
-                            <p class="click-hint">Clique para virar</p>
+                            <p class="hint">Clique para virar</p>
                         </div>
                         <div class="flashcard-back">
                             <h3>Rotação de Culturas</h3>
-                            <p>Prática de alternar diferentes culturas numa mesma área ao longo do tempo.</p>
-                            <h4>Benefícios:</h4>
+                            <p>Alternar diferentes culturas na mesma área melhora a fertilidade do solo e quebra ciclos de pragas.</p>
                             <ul>
-                                <li>✓ Quebra ciclo de pragas</li>
-                                <li>✓ Melhora fertilidade do solo</li>
-                                <li>✓ Controla ervas daninhas</li>
-                                <li>✓ Fixa nitrogênio (leguminosas)</li>
+                                <li>✓ Solo mais fértil</li>
+                                <li>✓ Controle natural de pragas</li>
+                                <li>✓ Melhor uso de nutrientes</li>
                             </ul>
-                            <img src="assets/estagiosdaplanta.jpeg" alt="Rotação de culturas" class="card-img">
                         </div>
                     </div>
                 </div>
-
-                <!-- Card 3 -->
+                
+                <!-- Flashcard 3 -->
                 <div class="flashcard" onclick="flipCard(this)">
                     <div class="flashcard-inner">
                         <div class="flashcard-front">
-                            <i class="fas fa-tint card-icon"></i>
+                            <i class="fas fa-tint"></i>
                             <h3>Irrigação Inteligente</h3>
-                            <p class="click-hint">Clique para virar</p>
+                            <p class="hint">Clique para virar</p>
                         </div>
                         <div class="flashcard-back">
                             <h3>Irrigação Inteligente</h3>
-                            <p>Uso de tecnologia para aplicar água de forma precisa e eficiente nas plantações.</p>
-                            <h4>Benefícios:</h4>
+                            <p>Uso de tecnologia para aplicar água na quantidade certa, no momento certo, evitando desperdícios.</p>
                             <ul>
-                                <li>✓ Economia de água (até 50%)</li>
+                                <li>✓ Economia de água</li>
                                 <li>✓ Sensores de umidade</li>
-                                <li>✓ Automação por aplicativo</li>
-                                <li>✓ Aumento da produtividade</li>
+                                <li>✓ Automação</li>
                             </ul>
-                            <img src="assets/planta.jpeg" alt="Irrigação" class="card-img">
                         </div>
                     </div>
                 </div>
-
-                <!-- Card 4 -->
+                
+                <!-- Flashcard 4 -->
                 <div class="flashcard" onclick="flipCard(this)">
                     <div class="flashcard-inner">
                         <div class="flashcard-front">
-                            <i class="fas fa-bee card-icon"></i>
+                            <i class="fas fa-bee"></i>
                             <h3>Polinização</h3>
-                            <p class="click-hint">Clique para virar</p>
+                            <p class="hint">Clique para virar</p>
                         </div>
                         <div class="flashcard-back">
                             <h3>Polinização</h3>
-                            <p>Processo essencial realizado por abelhas e outros polinizadores para a produção de alimentos.</p>
-                            <h4>Importância:</h4>
+                            <p>Abelhas e outros polinizadores são essenciais para a produção de alimentos. Preservá-los é vital!</p>
                             <ul>
-                                <li>✓ 75% das culturas dependem</li>
-                                <li>✓ Preservação de abelhas</li>
-                                <li>✓ Biodiversidade</li>
-                                <li>✓ Segurança alimentar</li>
+                                <li>✓ 75% dos alimentos</li>
+                                <li>✓ Preservação de matas</li>
+                                <li>✓ Menos agrotóxicos</li>
                             </ul>
-                            <img src="assets/plantacao.jpeg" alt="Polinização" class="card-img">
                         </div>
                     </div>
                 </div>
-
-                <!-- Card 5 -->
+                
+                <!-- Flashcard 5 -->
                 <div class="flashcard" onclick="flipCard(this)">
                     <div class="flashcard-inner">
                         <div class="flashcard-front">
-                            <i class="fas fa-tree card-icon"></i>
+                            <i class="fas fa-tree"></i>
                             <h3>ILPF</h3>
-                            <p class="click-hint">Clique para virar</p>
+                            <p class="hint">Clique para virar</p>
                         </div>
                         <div class="flashcard-back">
                             <h3>ILPF</h3>
-                            <p>Integração Lavoura-Pecuária-Floresta: sistema que combina diferentes atividades na mesma área.</p>
-                            <h4>Benefícios:</h4>
+                            <p>Integração Lavoura-Pecuária-Floresta: sistema que combina diferentes atividades na mesma área de forma sustentável.</p>
                             <ul>
-                                <li>✓ Diversificação de renda</li>
+                                <li>✓ Diversificação</li>
                                 <li>✓ Recuperação de pastagens</li>
                                 <li>✓ Sequestro de carbono</li>
-                                <li>✓ Bem-estar animal</li>
                             </ul>
-                            <img src="assets/fazendeironocampo.jpeg" alt="ILPF" class="card-img">
                         </div>
                     </div>
                 </div>
-
-                <!-- Card 6 -->
+                
+                <!-- Flashcard 6 -->
                 <div class="flashcard" onclick="flipCard(this)">
                     <div class="flashcard-inner">
                         <div class="flashcard-front">
-                            <i class="fas fa-bolt card-icon"></i>
+                            <i class="fas fa-bolt"></i>
                             <h3>Agroenergia</h3>
-                            <p class="click-hint">Clique para virar</p>
+                            <p class="hint">Clique para virar</p>
                         </div>
                         <div class="flashcard-back">
                             <h3>Agroenergia</h3>
-                            <p>Produção de energia renovável a partir de biomassa e resíduos agrícolas.</p>
-                            <h4>Tipos:</h4>
+                            <p>Produção de energia renovável a partir de biomassa, como cana-de-açúcar, milho e resíduos agrícolas.</p>
                             <ul>
-                                <li>✓ Biogás (dejetos animais)</li>
-                                <li>✓ Biodiesel (óleos vegetais)</li>
-                                <li>✓ Etanol (cana-de-açúcar)</li>
-                                <li>✓ Energia solar no campo</li>
+                                <li>✓ Etanol e biodiesel</li>
+                                <li>✓ Biogás</li>
+                                <li>✓ Energia limpa</li>
                             </ul>
-                            <img src="assets/trigo.jpeg" alt="Agroenergia" class="card-img">
                         </div>
                     </div>
                 </div>
@@ -371,154 +345,151 @@
     </section>
 
     <!-- Galeria de Imagens -->
-    <section id="galeria" class="section galeria">
+    <section id="galeria" class="section galeria-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Galeria do Campo</h2>
                 <p class="section-subtitle">Conheça a realidade do agronegócio sustentável</p>
                 <div class="section-line"></div>
             </div>
-
+            
             <div class="galeria-grid">
-                <div class="galeria-item">
-                    <img src="assets/fazendeiro.jpeg" alt="Agricultor" loading="lazy">
-                    <div class="galeria-overlay">
-                        <h4>O Produtor Rural</h4>
-                        <p>Profissional que alimenta o Brasil</p>
-                    </div>
-                </div>
-                <div class="galeria-item">
-                    <img src="assets/planta.jpeg" alt="Planta" loading="lazy">
-                    <div class="galeria-overlay">
-                        <h4>Crescimento</h4>
-                        <p>Cada planta é vida</p>
-                    </div>
-                </div>
                 <div class="galeria-item">
                     <img src="assets/plantacao.jpeg" alt="Plantação" loading="lazy">
                     <div class="galeria-overlay">
-                        <h4>Plantação</h4>
-                        <p>Extensão de verde e vida</p>
+                        <p>Plantação Sustentável</p>
                     </div>
                 </div>
                 <div class="galeria-item">
                     <img src="assets/estagiosdaplanta.jpeg" alt="Estágios da planta" loading="lazy">
                     <div class="galeria-overlay">
-                        <h4>Ciclo de Vida</h4>
-                        <p>Do plantio à colheita</p>
+                        <p>Ciclo de Crescimento</p>
                     </div>
                 </div>
                 <div class="galeria-item">
                     <img src="assets/fazendeironocampo.jpeg" alt="Fazendeiro no campo" loading="lazy">
                     <div class="galeria-overlay">
-                        <h4>No Campo</h4>
-                        <p>Trabalho e dedicação</p>
+                        <p>Trabalho no Campo</p>
                     </div>
                 </div>
                 <div class="galeria-item">
                     <img src="assets/plantacrescendo.jpeg" alt="Planta crescendo" loading="lazy">
                     <div class="galeria-overlay">
-                        <h4>Crescimento</h4>
-                        <p>Fruto do cuidado</p>
+                        <p>Desenvolvimento</p>
                     </div>
                 </div>
                 <div class="galeria-item">
                     <img src="assets/trigo.jpeg" alt="Trigo" loading="lazy">
                     <div class="galeria-overlay">
-                        <h4>Trigo</h4>
-                        <p>Pão de cada dia</p>
+                        <p>Cultivo de Trigo</p>
                     </div>
                 </div>
                 <div class="galeria-item">
                     <img src="assets/sustentabilidade.jpeg" alt="Sustentabilidade" loading="lazy">
                     <div class="galeria-overlay">
-                        <h4>Sustentabilidade</h4>
-                        <p>Preservar para o futuro</p>
+                        <p>Agricultura Sustentável</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quiz Interativo -->
-    <section class="section quiz-section">
+    <!-- Casos Reais -->
+    <section class="section casos-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Teste seus Conhecimentos</h2>
-                <p class="section-subtitle">Responda e descubra quanto você aprendeu!</p>
+                <h2 class="section-title">Casos de Sucesso</h2>
+                <p class="section-subtitle">Produtores brasileiros que fazem a diferença</p>
                 <div class="section-line"></div>
             </div>
-
-            <div class="quiz-container" id="quizContainer">
-                <div class="quiz-question" id="quizQuestion">
-                    <h3 id="questionText">Carregando pergunta...</h3>
-                    <div class="quiz-options" id="quizOptions">
-                        <!-- Opções serão inseridas via JavaScript -->
+            
+            <div class="casos-grid">
+                <div class="caso-card">
+                    <div class="caso-image">
+                        <img src="assets/fazendeiro.jpeg" alt="Produtor rural">
+                    </div>
+                    <div class="caso-content">
+                        <h3>Família Silva - Paraná</h3>
+                        <p class="caso-local"><i class="fas fa-map-marker-alt"></i> Toledo, PR</p>
+                        <p>Implementaram ILPF em 200 hectares, aumentando a produtividade em 40% e recuperando áreas degradadas.</p>
+                        <div class="caso-tags">
+                            <span>ILPF</span>
+                            <span>Sustentabilidade</span>
+                        </div>
                     </div>
                 </div>
-                <div class="quiz-result" id="quizResult" style="display: none;">
-                    <h3>Resultado</h3>
-                    <p id="resultText"></p>
-                    <button class="btn btn-primary" onclick="restartQuiz()">Tentar Novamente</button>
-                </div>
-                <div class="quiz-progress">
-                    <span id="currentQuestion">1</span> / <span id="totalQuestions">5</span>
+                
+                <div class="caso-card">
+                    <div class="caso-image">
+                        <img src="assets/plantacao.jpeg" alt="Agricultura familiar">
+                    </div>
+                    <div class="caso-content">
+                        <h3>Cooperativa Esperança</h3>
+                        <p class="caso-local"><i class="fas fa-map-marker-alt"></i> Cascavel, PR</p>
+                        <p>Agricultores familiares que adotaram plantio direto e rotação de culturas, reduzindo custos em 30%.</p>
+                        <div class="caso-tags">
+                            <span>Agricultura Familiar</span>
+                            <span>Plantio Direto</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Formulário de Contato -->
-    <section id="contato" class="section contato">
+    <section id="contato" class="section contato-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Entre em Contato</h2>
-                <p class="section-subtitle">Tem dúvidas sobre o Agrinho? Envie uma mensagem!</p>
+                <h2 class="section-title">Fale Conosco</h2>
+                <p class="section-subtitle">Tem dúvidas ou quer saber mais? Envie uma mensagem!</p>
                 <div class="section-line"></div>
             </div>
-
-            <div class="contato-container">
+            
+            <div class="contato-grid">
                 <div class="contato-info">
-                    <h3>Informações de Contato</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
+                    <div class="contato-item">
+                        <i class="fas fa-envelope"></i>
                         <div>
-                            <h4>Endereço</h4>
-                            <p>SENAR - Brasília/DF</p>
+                            <h4>Email</h4>
+                            <p>contato@agrinho.pr.gov.br</p>
                         </div>
                     </div>
-                    <div class="info-item">
+                    <div class="contato-item">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Telefone</h4>
-                            <p>0800 641 0066</p>
+                            <p>(41) 3333-4444</p>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
+                    <div class="contato-item">
+                        <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h4>E-mail</h4>
-                            <p>agrinho@senar.org.br</p>
+                            <h4>Endereço</h4>
+                            <p>Curitiba, Paraná - Brasil</p>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Horário de Atendimento</h4>
-                            <p>Segunda a Sexta: 8h às 18h</p>
+                    
+                    <div class="contato-social">
+                        <h4>Siga-nos</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                 </div>
-
+                
                 <form class="contato-form" id="contatoForm">
                     <div class="form-group">
                         <label for="nome">Nome Completo *</label>
-                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome">
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">E-mail *</label>
-                        <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
                     </div>
                     
                     <div class="form-group">
@@ -527,7 +498,7 @@
                             <option value="">Selecione um assunto</option>
                             <option value="duvida">Dúvida sobre o programa</option>
                             <option value="parceria">Proposta de parceria</option>
-                            <option value="material">Solicitação de material</option>
+                            <option value="material">Solicitar material</option>
                             <option value="outro">Outro</option>
                         </select>
                     </div>
@@ -537,11 +508,11 @@
                         <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Digite sua mensagem..."></textarea>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btn-submit">
+                    <button type="submit" class="btn btn-submit">
                         <i class="fas fa-paper-plane"></i> Enviar Mensagem
                     </button>
                     
-                    <div class="form-message" id="formMessage"></div>
+                    <div id="formMessage" class="form-message"></div>
                 </form>
             </div>
         </div>
@@ -550,51 +521,48 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-seedling"></i> Agrinho</h3>
-                    <p>Educando para um futuro sustentável no campo brasileiro.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-seedling"></i>
+                        <span>Agrinho</span>
                     </div>
+                    <p>Programa socioeducativo que promove sustentabilidade, cidadania e qualidade de vida desde 1995.</p>
                 </div>
                 
-                <div class="footer-section">
+                <div class="footer-links">
                     <h4>Links Rápidos</h4>
                     <ul>
-                        <li><a href="#sobre">Sobre o Programa</a></li>
-                        <li><a href="#pilares">Pilares da Sustentabilidade</a></li>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">O Programa</a></li>
+                        <li><a href="#pilares">Pilares</a></li>
                         <li><a href="#flashcards">Flashcards</a></li>
-                        <li><a href="#galeria">Galeria</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Recursos Educacionais</h4>
+                <div class="footer-links">
+                    <h4>Recursos</h4>
                     <ul>
-                        <li><a href="#" onclick="alert('Em breve!')">Glossário Técnico</a></li>
-                        <li><a href="#" onclick="alert('Em breve!')">Materiais para Download</a></li>
-                        <li><a href="#" onclick="alert('Em breve!')">Vídeos Educativos</a></li>
-                        <li><a href="#" onclick="alert('Em breve!')">Jogos Interativos</a></li>
+                        <li><a href="#">Material Didático</a></li>
+                        <li><a href="#">Glossário Técnico</a></li>
+                        <li><a href="#">Vídeos Educativos</a></li>
+                        <li><a href="#">Downloads</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-section">
+                <div class="footer-newsletter">
                     <h4>Newsletter</h4>
                     <p>Receba novidades do Agrinho</p>
-                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Obrigado por se inscrever!');">
-                        <input type="email" placeholder="Seu e-mail" required>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu email">
                         <button type="submit"><i class="fas fa-arrow-right"></i></button>
                     </form>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Agrinho - SENAR. Todos os direitos reservados.</p>
-                <p>Trabalho escolar - Desenvolvido para fins educacionais</p>
+                <p>&copy; 2026 Agrinho - Todos os direitos reservados</p>
+                <p>Desenvolvido para trabalho escolar | <a href="#">Política de Privacidade</a></p>
             </div>
         </div>
     </footer>
