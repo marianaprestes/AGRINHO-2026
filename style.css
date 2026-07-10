@@ -1,1175 +1,461 @@
-/* Reset e Variáveis */
-:root {
-    --cor-primaria: #2d6a4f;
-    --cor-secundaria: #52b788;
-    --cor-destaque: #d8f3dc;
-    --cor-texto: #1b4332;
-    --cor-fundo: #f8f9fa;
-    --cor-branco: #ffffff;
-    --cor-alerta: #e9c46a;
-    --cor-erro: #e76f51;
-    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --sombra-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
-    --transicao: all 0.3s ease;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Open Sans', sans-serif;
-    color: var(--cor-texto);
-    background-color: var(--cor-fundo);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Navegação */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--sombra);
-    z-index: 1000;
-    transition: var(--transicao);
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 20px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--cor-primaria);
-}
-
-.logo i {
-    font-size: 2rem;
-    color: var(--cor-secundaria);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--cor-texto);
-    font-weight: 600;
-    transition: var(--transicao);
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--cor-secundaria);
-    transition: var(--transicao);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-links a:hover {
-    color: var(--cor-primaria);
-}
-
-.mobile-menu {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--cor-primaria);
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    height: 100vh;
-    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--cor-branco);
-    overflow: hidden;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('assets/fazendeironocampo.jpeg') center/cover;
-    opacity: 0.3;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: var(--transicao);
-    text-decoration: none;
-    display: inline-block;
-}
-
-.btn-primary {
-    background: var(--cor-branco);
-    color: var(--cor-primaria);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--sombra-hover);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--cor-branco);
-    border: 2px solid var(--cor-branco);
-}
-
-.btn-secondary:hover {
-    background: var(--cor-branco);
-    color: var(--cor-primaria);
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-    color: var(--cor-branco);
-    font-size: 2rem;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-    40% { transform: translateX(-50%) translateY(-10px); }
-    60% { transform: translateX(-50%) translateY(-5px); }
-}
-
-/* Seções Gerais */
-.section {
-    padding: 5rem 0;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-    color: var(--cor-primaria);
-    margin-bottom: 0.5rem;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: #666;
-}
-
-.divider {
-    width: 80px;
-    height: 4px;
-    background: var(--cor-secundaria);
-    margin: 1rem auto;
-    border-radius: 2px;
-}
-
-/* Sobre */
-.sobre {
-    background: var(--cor-branco);
-}
-
-.sobre-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.info-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: var(--cor-destaque);
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-}
-
-.info-card i {
-    font-size: 2.5rem;
-    color: var(--cor-primaria);
-}
-
-.info-card h3 {
-    color: var(--cor-primaria);
-    margin-bottom: 0.25rem;
-}
-
-.sobre-text p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    text-align: justify;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.stat-item {
-    text-align: center;
-    padding: 1.5rem;
-    background: var(--cor-fundo);
-    border-radius: 10px;
-}
-
-.stat-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--cor-primaria);
-    font-family: 'Nunito', sans-serif;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.sobre-image {
-    position: relative;
-    height: 500px;
-}
-
-.sobre-image img {
-    border-radius: 20px;
-    box-shadow: var(--sombra-hover);
-}
-
-.main-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.floating-img {
-    position: absolute;
-    border-radius: 15px;
-    box-shadow: var(--sombra-hover);
-}
-
-.img-1 {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    top: -20px;
-    right: -20px;
-    animation: float 6s ease-in-out infinite;
-}
-
-.img-2 {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    bottom: 20px;
-    left: -30px;
-    animation: float 6s ease-in-out infinite reverse;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-}
-
-/* Pilares */
-.pilares {
-    background: var(--cor-fundo);
-}
-
-.pilares-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.pilar-card {
-    background: var(--cor-branco);
-    padding: 2.5rem 2rem;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: var(--sombra);
-    transition: var(--transicao);
-}
-
-.pilar-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--sombra-hover);
-}
-
-.pilar-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 2rem;
-    color: var(--cor-branco);
-}
-
-.pilar-icon.ambiente { background: #2d6a4f; }
-.pilar-icon.economia { background: #40916c; }
-.pilar-icon.social { background: #52b788; }
-.pilar-icon.tecnologia { background: #74c69d; }
-
-.pilar-card h3 {
-    color: var(--cor-primaria);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.pilar-card ul {
-    list-style: none;
-    margin-top: 1.5rem;
-    text-align: left;
-}
-
-.pilar-card ul li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.pilar-card ul li i {
-    position: absolute;
-    left: 0;
-    color: var(--cor-secundaria);
-}
-
-/* Dados e Gráfico */
-.dados {
-    background: var(--cor-branco);
-}
-
-.dados-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-}
-
-.chart-container {
-    background: var(--cor-fundo);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: var(--sombra);
-}
-
-.dados-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.info-box {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.5rem;
-    background: var(--cor-destaque);
-    border-radius: 15px;
-    transition: var(--transicao);
-}
-
-.info-box:hover {
-    transform: translateX(10px);
-}
-
-.info-box i {
-    font-size: 2rem;
-    color: var(--cor-primaria);
-}
-
-.info-box h4 {
-    color: var(--cor-primaria);
-    margin-bottom: 0.25rem;
-}
-
-/* Flashcards CORRIGIDOS */
-.flashcards {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-}
-
-.flashcards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.flashcard {
-    perspective: 1000px;
-    height: 280px;
-    cursor: pointer;
-    outline: none;
-}
-
-.flashcard:focus {
-    outline: 3px solid var(--cor-secundaria);
-    border-radius: 20px;
-}
-
-.flashcard-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.flashcard.flipped .flashcard-inner {
-    transform: rotateY(180deg);
-}
-
-.flashcard-front,
-.flashcard-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    box-shadow: var(--sombra);
-    text-align: center;
-}
-
-.flashcard-front {
-    background: var(--cor-branco);
-    color: var(--cor-texto);
-}
-
-.flashcard-back {
-    background: var(--cor-primaria);
-    color: var(--cor-branco);
-    transform: rotateY(180deg);
-}
-
-.flashcard i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--cor-secundaria);
-}
-
-.flashcard-back i {
-    color: var(--cor-destaque);
-}
-
-.flashcard h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.flashcard-back h3 {
-    color: var(--cor-branco);
-}
-
-.flashcard-back p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-}
-
-.flashcard-hint {
-    font-size: 0.85rem;
-    color: #999;
-    margin-top: 0.5rem;
-    font-style: italic;
-}
-
-.flashcard:hover .flashcard-hint {
-    color: var(--cor-secundaria);
-}
-
-.benefits {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.benefits span {
-    background: rgba(255,255,255,0.2);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-/* Galeria */
-.galeria {
-    background: var(--cor-branco);
-}
-
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 250px);
-    gap: 1rem;
-}
-
-.galeria-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
-.galeria-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transicao);
-}
-
-.galeria-item:hover img {
-    transform: scale(1.1);
-}
-
-.galeria-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: white;
-    padding: 1.5rem;
-    transform: translateY(100%);
-    transition: var(--transicao);
-}
-
-.galeria-item:hover .galeria-overlay {
-    transform: translateY(0);
-}
-
-.galeria-item.large {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-.galeria-item.wide {
-    grid-column: span 2;
-}
-
-/* Casos de Sucesso */
-.casos {
-    background: var(--cor-fundo);
-}
-
-.casos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.caso-card {
-    background: var(--cor-branco);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: var(--sombra);
-    transition: var(--transicao);
-}
-
-.caso-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--sombra-hover);
-}
-
-.caso-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.caso-header i {
-    font-size: 2.5rem;
-    color: var(--cor-secundaria);
-}
-
-.caso-card h3 {
-    color: var(--cor-primaria);
-}
-
-.caso-tags {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-}
-
-.caso-tags span {
-    background: var(--cor-destaque);
-    color: var(--cor-primaria);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-/* Calculadora */
-.calculadora {
-    background: var(--cor-branco);
-}
-
-.calculadora-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    background: var(--cor-fundo);
-    padding: 3rem;
-    border-radius: 20px;
-}
-
-.calculadora-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.form-group label {
-    font-weight: 600;
-    color: var(--cor-primaria);
-}
-
-.form-group input,
-.form-group textarea {
-    padding: 0.75rem;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    font-family: inherit;
-    transition: var(--transicao);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--cor-secundaria);
-}
-
-.calculadora-result {
-    background: var(--cor-branco);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: var(--sombra);
-}
-
-.resultado-valor {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.resultado-valor span {
-    display: block;
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--cor-primaria);
-    font-family: 'Nunito', sans-serif;
-}
-
-.unidade {
-    font-size: 1.2rem !important;
-    color: #666 !important;
-}
-
-.dicas-sustentaveis {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 2px solid var(--cor-destaque);
-}
-
-.dicas-sustentaveis h4 {
-    color: var(--cor-primaria);
-    margin-bottom: 1rem;
-}
-
-.dicas-sustentaveis ul {
-    list-style: none;
-}
-
-.dicas-sustentaveis li {
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.dicas-sustentaveis i {
-    color: var(--cor-secundaria);
-}
-
-/* Quiz */
-.quiz {
-    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
-    color: var(--cor-branco);
-}
-
-.quiz .section-header h2,
-.quiz .section-header .subtitle {
-    color: var(--cor-branco);
-}
-
-.quiz-container {
-    max-width: 700px;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    padding: 3rem;
-    border-radius: 20px;
-}
-
-.quiz-progress {
-    height: 8px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 4px;
-    margin-bottom: 2rem;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background: var(--cor-branco);
-    width: 0%;
-    transition: width 0.3s ease;
-}
-
-.quiz-question h3 {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.quiz-options {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.quiz-option {
-    background: rgba(255,255,255,0.2);
-    border: 2px solid transparent;
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: var(--transicao);
-    text-align: left;
-    color: var(--cor-branco);
-    font-size: 1rem;
-}
-
-.quiz-option:hover {
-    background: rgba(255,255,255,0.3);
-    border-color: var(--cor-branco);
-}
-
-.quiz-option.correct {
-    background: #2d6a4f;
-    border-color: #2d6a4f;
-}
-
-.quiz-option.incorrect {
-    background: #e76f51;
-    border-color: #e76f51;
-}
-
-.quiz-result {
-    text-align: center;
-}
-
-.score {
-    font-size: 4rem;
-    font-weight: 800;
-    margin: 2rem 0;
-    font-family: 'Nunito', sans-serif;
-}
-
-/* Contato */
-.contato {
-    background: var(--cor-fundo);
-}
-
-.contato-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 3rem;
-}
-
-.contato-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-}
-
-.info-item i {
-    font-size: 1.5rem;
-    color: var(--cor-primaria);
-    width: 40px;
-    height: 40px;
-    background: var(--cor-destaque);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.info-item h4 {
-    color: var(--cor-primaria);
-    margin-bottom: 0.25rem;
-}
-
-.redes-sociais h4 {
-    color: var(--cor-primaria);
-    margin-bottom: 1rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    width: 45px;
-    height: 45px;
-    background: var(--cor-primaria);
-    color: var(--cor-branco);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    transition: var(--transicao);
-}
-
-.social-links a:hover {
-    background: var(--cor-secundaria);
-    transform: translateY(-3px);
-}
-
-.contato-form {
-    background: var(--cor-branco);
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: var(--sombra);
-}
-
-.btn-full {
-    width: 100%;
-}
-
-/* Footer */
-.footer {
-    background: var(--cor-primaria);
-    color: var(--cor-branco);
-    padding: 4rem 0 2rem;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
-}
-
-.footer .logo {
-    color: var(--cor-branco);
-    margin-bottom: 1rem;
-}
-
-.footer h4 {
-    margin-bottom: 1.5rem;
-    color: var(--cor-destaque);
-}
-
-.footer ul {
-    list-style: none;
-}
-
-.footer ul li {
-    margin-bottom: 0.75rem;
-}
-
-.footer ul a {
-    color: var(--cor-branco);
-    text-decoration: none;
-    transition: var(--transicao);
-}
-
-.footer ul a:hover {
-    color: var(--cor-secundaria);
-    padding-left: 5px;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.fontes {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    margin-top: 0.5rem;
-}
-
-/* Botão Voltar ao Topo */
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: var(--cor-primaria);
-    color: var(--cor-branco);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    box-shadow: var(--sombra);
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transicao);
-    z-index: 999;
-}
-
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    background: var(--cor-secundaria);
-    transform: translateY(-5px);
-}
-
-/* Animações */
-.animate-fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
-}
-
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-/* Responsividade */
-@media (max-width: 968px) {
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: var(--cor-branco);
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-        transition: var(--transicao);
+// Menu Mobile
+const mobileMenu = document.getElementById('mobileMenu');
+const navLinks = document.getElementById('navLinks');
+const navbar = document.getElementById('navbar');
+
+mobileMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenu.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+});
+
+// Fechar menu ao clicar em um link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+    } else {
+        navbar.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
     }
     
-    .nav-links.active {
-        right: 0;
+    // Botão voltar ao topo
+    const backToTop = document.getElementById('backToTop');
+    if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
     }
+});
+
+// Voltar ao topo
+document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Animação dos números
+const animateNumbers = () => {
+    const numbers = document.querySelectorAll('.stat-number');
     
-    .mobile-menu {
-        display: block;
-    }
+    numbers.forEach(number => {
+        const target = parseInt(number.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateNumber = () => {
+            current += increment;
+            if (current < target) {
+                number.textContent = Math.floor(current).toLocaleString();
+                requestAnimationFrame(updateNumber);
+            } else {
+                number.textContent = target.toLocaleString() + '+';
+            }
+        };
+        
+        updateNumber();
+    });
+};
+
+// Intersection Observer para animar elementos
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            
+            if (entry.target.classList.contains('stats-grid')) {
+                animateNumbers();
+            }
+        }
+    });
+}, observerOptions);
+
+// Observar elementos
+document.querySelectorAll('.pilar-card, .info-box, .caso-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.6s ease';
+    observer.observe(el);
+});
+
+document.querySelectorAll('.stats-grid').forEach(el => {
+    observer.observe(el);
+});
+
+// Flashcards CORRIGIDOS
+function flipCard(card) {
+    // Previne múltiplos cliques durante a animação
+    if (card.classList.contains('flipping')) return;
     
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+    card.classList.add('flipping');
+    card.classList.toggle('flipped');
     
-    .hero p {
-        font-size: 1.2rem;
-    }
-    
-    .sobre-grid,
-    .dados-grid,
-    .calculadora-container,
-    .contato-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .sobre-image {
-        height: 400px;
-        order: -1;
-    }
-    
-    .galeria-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 200px);
-    }
-    
-    .galeria-item.large {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-    
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
+    // Remove a classe flipping após a animação
+    setTimeout(() => {
+        card.classList.remove('flipping');
+    }, 600);
 }
 
-@media (max-width: 600px) {
-    .hero h1 {
-        font-size: 2rem;
+// Adiciona event listeners para todos os flashcards
+document.addEventListener('DOMContentLoaded', () => {
+    const flashcards = document.querySelectorAll('.flashcard');
+    
+    flashcards.forEach(card => {
+        // Clique com mouse
+        card.addEventListener('click', () => flipCard(card));
+        
+        // Teclado (Enter ou Espaço)
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                flipCard(card);
+            }
+        });
+    });
+});
+
+// Gráfico Chart.js
+const ctx = document.getElementById('agroChart').getContext('2d');
+const agroChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Soja', 'Milho', 'Café', 'Açúcar', 'Carne Bovina', 'Algodão'],
+        datasets: [{
+            label: 'Produção Brasileira (milhões de toneladas)',
+            data: [152.5, 123.8, 3.7, 42.3, 10.2, 2.8],
+            backgroundColor: [
+                'rgba(45, 106, 79, 0.8)',
+                'rgba(82, 183, 136, 0.8)',
+                'rgba(64, 145, 108, 0.8)',
+                'rgba(116, 198, 157, 0.8)',
+                'rgba(183, 223, 201, 0.8)',
+                'rgba(216, 243, 220, 0.8)'
+            ],
+            borderColor: [
+                'rgba(45, 106, 79, 1)',
+                'rgba(82, 183, 136, 1)',
+                'rgba(64, 145, 108, 1)',
+                'rgba(116, 198, 157, 1)',
+                'rgba(183, 223, 201, 1)',
+                'rgba(216, 243, 220, 1)'
+            ],
+            borderWidth: 2,
+            borderRadius: 10
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    font: {
+                        family: "'Nunito', sans-serif",
+                        size: 12
+                    },
+                    color: '#1b4332'
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(45, 106, 79, 0.9)',
+                titleFont: {
+                    family: "'Nunito', sans-serif"
+                },
+                bodyFont: {
+                    family: "'Open Sans', sans-serif"
+                },
+                padding: 12,
+                cornerRadius: 8
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: {
+                    color: 'rgba(0,0,0,0.05)'
+                },
+                ticks: {
+                    font: {
+                        family: "'Open Sans', sans-serif"
+                    },
+                    color: '#1b4332'
+                }
+            },
+            x: {
+                grid: {
+                    display: false
+                },
+                ticks: {
+                    font: {
+                        family: "'Nunito', sans-serif"
+                    },
+                    color: '#1b4332'
+                }
+            }
+        }
+    }
+});
+
+// Calculadora de Pegada de Carbono
+function calcularPegada() {
+    const kmCarro = parseFloat(document.getElementById('kmCarro').value) || 0;
+    const consumoCarne = parseFloat(document.getElementById('consumoCarne').value) || 0;
+    const energia = parseFloat(document.getElementById('energia').value) || 0;
+    
+    // Cálculos aproximados (kg CO2)
+    const carbonoCarro = (kmCarro * 52) * 0.12; // km/semana * semanas/ano * kg CO2/km
+    const carbonoCarne = consumoCarne * 52 * 2.5; // refeições/semana * semanas * kg CO2/refeição
+    const carbonoEnergia = energia * 12 * 0.1; // kWh/mês * meses * kg CO2/kWh
+    
+    const totalToneladas = ((carbonoCarro + carbonoCarne + carbonoEnergia) / 1000).toFixed(2);
+    
+    document.getElementById('valorPegada').textContent = totalToneladas;
+    
+    let mensagem = '';
+    if (totalToneladas < 5) {
+        mensagem = 'Parabéns! Sua pegada de carbono está abaixo da média nacional. Continue assim!';
+    } else if (totalToneladas < 10) {
+        mensagem = 'Sua pegada está na média. Que tal adotar mais práticas sustentáveis?';
+    } else {
+        mensagem = 'Sua pegada está acima da média. Vamos juntos reduzir seu impacto ambiental?';
     }
     
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
+    document.getElementById('mensagemPegada').textContent = mensagem;
+    document.getElementById('resultadoCalculadora').style.display = 'block';
     
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .galeria-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(8, 250px);
-    }
-    
-    .galeria-item.large,
-    .galeria-item.wide {
-        grid-column: span 1;
-    }
-    
-    .flashcards-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .flashcard {
-        height: 320px;
-    }
-    
-    .pilares-grid {
-        grid-template-columns: 1fr;
-    }
+    // Scroll suave até o resultado
+    document.getElementById('resultadoCalculadora').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-/* Utilitários */
-.btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+// Quiz
+const perguntas = [
+    {
+        pergunta: "O que significa ILPF?",
+        opcoes: [
+            "Integração Lavoura-Pecuária-Floresta",
+            "Instituto de Lavradores e Produtores Florestais",
+            "Indústria de Laticínios e Produtos Frescos",
+            "Irrigação Localizada para Plantas Frutíferas"
+        ],
+        correta: 0
+    },
+    {
+        pergunta: "Qual porcentagem do PIB brasileiro representa o agronegócio?",
+        opcoes: [
+            "10%",
+            "25%",
+            "40%",
+            "60%"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "O que é Plantio Direto?",
+        opcoes: [
+            "Plantar apenas em linha reta",
+            "Técnica que não revolve o solo, mantendo palhada",
+            "Plantar diretamente sem sementes",
+            "Método de plantio em estufas"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "Qual a principal função dos polinizadores na agricultura?",
+        opcoes: [
+            "Apenas produzir mel",
+            "Controlar pragas naturalmente",
+            "Permitir a reprodução de 75% das culturas alimentares",
+            "Decorar as plantações"
+        ],
+        correta: 2
+    },
+    {
+        pergunta: "O que produz 70% dos alimentos que chegam à mesa dos brasileiros?",
+        opcoes: [
+            "Grandes empresas multinacionais",
+            "Agricultura familiar",
+            "Importações",
+            "Hortas urbanas"
+        ],
+        correta: 1
+    }
+];
+
+let perguntaAtual = 0;
+let pontuacao = 0;
+let respondidas = new Set();
+
+function carregarPergunta() {
+    if (perguntaAtual >= perguntas.length) {
+        mostrarResultado();
+        return;
+    }
+    
+    const pergunta = perguntas[perguntaAtual];
+    document.getElementById('perguntaTexto').textContent = `${perguntaAtual + 1}. ${pergunta.pergunta}`;
+    
+    const optionsContainer = document.getElementById('quizOptions');
+    optionsContainer.innerHTML = '';
+    
+    pergunta.opcoes.forEach((opcao, index) => {
+        const button = document.createElement('button');
+        button.className = 'quiz-option';
+        button.textContent = opcao;
+        button.onclick = () => verificarResposta(index, button);
+        optionsContainer.appendChild(button);
+    });
+    
+    // Atualizar barra de progresso
+    const progresso = ((perguntaAtual) / perguntas.length) * 100;
+    document.getElementById('progressBar').style.width = `${progresso}%`;
 }
 
-/* Scrollbar personalizada */
-::-webkit-scrollbar {
-    width: 10px;
+function verificarResposta(index, button) {
+    if (respondidas.has(perguntaAtual)) return;
+    
+    respondidas.add(perguntaAtual);
+    const correta = perguntas[perguntaAtual].correta;
+    const opcoes = document.querySelectorAll('.quiz-option');
+    
+    if (index === correta) {
+        button.classList.add('correct');
+        pontuacao++;
+    } else {
+        button.classList.add('incorrect');
+        opcoes[correta].classList.add('correct');
+    }
+    
+    // Desabilitar todas as opções
+    opcoes.forEach(op => op.style.pointerEvents = 'none');
+    
+    // Próxima pergunta após 1.5s
+    setTimeout(() => {
+        perguntaAtual++;
+        carregarPergunta();
+    }, 1500);
 }
 
-::-webkit-scrollbar-track {
-    background: var(--cor-fundo);
+function mostrarResultado() {
+    document.getElementById('quizQuestion').style.display = 'none';
+    document.querySelector('.quiz-progress').style.display = 'none';
+    
+    const resultDiv = document.getElementById('quizResult');
+    resultDiv.style.display = 'block';
+    document.getElementById('scoreValue').textContent = pontuacao;
+    
+    let mensagem = '';
+    if (pontuacao === 5) {
+        mensagem = 'Excelente! Você é um expert em sustentabilidade! 🌱';
+    } else if (pontuacao >= 3) {
+        mensagem = 'Muito bom! Você conhece bem o assunto! Continue aprendendo! ';
+    } else {
+        mensagem = 'Que tal revisar o conteúdo e tentar novamente? 📚';
+    }
+    
+    document.getElementById('scoreMessage').textContent = mensagem;
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--cor-secundaria);
-    border-radius: 5px;
+function reiniciarQuiz() {
+    perguntaAtual = 0;
+    pontuacao = 0;
+    respondidas.clear();
+    
+    document.getElementById('quizQuestion').style.display = 'block';
+    document.querySelector('.quiz-progress').style.display = 'block';
+    document.getElementById('quizResult').style.display = 'none';
+    
+    carregarPergunta();
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--cor-primaria);
+// Inicializar quiz
+carregarPergunta();
+
+// Formulário de Contato
+document.getElementById('contatoForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+    
+    // Simulação de envio
+    const btn = this.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    btn.disabled = true;
+    
+    setTimeout(() => {
+        alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso. Entraremos em contato pelo email ${email} em breve!`);
+        
+        this.reset();
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }, 2000);
+});
+
+// Smooth scroll para links internos
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Lazy loading para imagens
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src || img.src;
+                img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// Efeito de digitação no hero (opcional)
+const heroTitle = document.querySelector('.hero h1');
+if (heroTitle) {
+    const text = heroTitle.textContent;
+    heroTitle.textContent = '';
+    let i = 0;
+    
+    const typeWriter = () => {
+        if (i < text.length) {
+            heroTitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
+    };
+    
+    // Iniciar após 1 segundo
+    setTimeout(typeWriter, 1000);
 }
