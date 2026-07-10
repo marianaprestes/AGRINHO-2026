@@ -1,35 +1,29 @@
-// ========================================
-// NAVEGAÇÃO E MENU MOBILE
-// ========================================
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
+// Menu Mobile
+const mobileMenu = document.getElementById('mobileMenu');
+const navLinks = document.getElementById('navLinks');
 const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-link');
 
-// Toggle menu mobile
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    const icon = navToggle.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
+mobileMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenu.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
 });
 
 // Fechar menu ao clicar em um link
-navLinks.forEach(link => {
+document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        const icon = navToggle.querySelector('i');
-        icon.classList.add('fa-bars');
-        icon.classList.remove('fa-times');
+        navLinks.classList.remove('active');
+        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
     });
 });
 
-// Efeito de scroll na navbar
+// Navbar scroll effect
 window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
     } else {
-        navbar.classList.remove('scrolled');
+        navbar.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
     }
     
     // Botão voltar ao topo
@@ -41,341 +35,400 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Botão voltar ao topo
+// Voltar ao topo
 document.getElementById('backToTop').addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ========================================
-// FLASHCARDS INTERATIVOS
-// ========================================
-function flipCard(card) {
-    card.classList.toggle('flipped');
-}
-
-// ========================================
-// GRÁFICO COM CHART.JS
-// ========================================
-document.addEventListener('DOMContentLoaded', () => {
-    const ctx = document.getElementById('agricultureChart').getContext('2d');
+// Animação dos números
+const animateNumbers = () => {
+    const numbers = document.querySelectorAll('.stat-number');
     
-    // Dados reais sobre o agronegócio brasileiro
-    const agricultureChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Soja', 'Milho', 'Cana-de-Açúcar', 'Café', 'Trigo', 'Algodão'],
-            datasets: [{
-                label: 'Produção (Milhões de Toneladas)',
-                data: [135.2, 115.8, 638.5, 3.8, 8.2, 2.9],
-                backgroundColor: [
-                    'rgba(45, 106, 79, 0.8)',
-                    'rgba(82, 183, 136, 0.8)',
-                    'rgba(116, 198, 157, 0.8)',
-                    'rgba(149, 213, 178, 0.8)',
-                    'rgba(182, 228, 199, 0.8)',
-                    'rgba(210, 240, 220, 0.8)'
-                ],
-                borderColor: [
-                    'rgba(45, 106, 79, 1)',
-                    'rgba(82, 183, 136, 1)',
-                    'rgba(116, 198, 157, 1)',
-                    'rgba(149, 213, 178, 1)',
-                    'rgba(182, 228, 199, 1)',
-                    'rgba(210, 240, 220, 1)'
-                ],
-                borderWidth: 2,
-                borderRadius: 8,
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'top',
-                    labels: {
-                        font: {
-                            family: "'Nunito', sans-serif",
-                            size: 12
-                        },
-                        color: '#2b2d42'
-                    }
-                },
-                title: {
-                    display: true,
-                    text: 'Principais Culturas Brasileiras - Safra 2023/2024',
-                    font: {
-                        family: "'Nunito', sans-serif",
-                        size: 16,
-                        weight: 'bold'
-                    },
-                    color: '#1b4332',
-                    padding: {
-                        top: 10,
-                        bottom: 20
-                    }
-                },
-                tooltip: {
-                    backgroundColor: 'rgba(27, 67, 50, 0.9)',
-                    titleFont: {
-                        family: "'Nunito', sans-serif",
-                        size: 14
-                    },
-                    bodyFont: {
-                        family: "'Open Sans', sans-serif",
-                        size: 12
-                    },
-                    padding: 12,
-                    cornerRadius: 8,
-                    callbacks: {
-                        label: function(context) {
-                            return context.parsed.y + ' milhões de toneladas';
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        font: {
-                            family: "'Open Sans', sans-serif"
-                        },
-                        color: '#666',
-                        callback: function(value) {
-                            return value + ' Mi t';
-                        }
-                    },
-                    grid: {
-                        color: 'rgba(0,0,0,0.05)',
-                        drawBorder: false
-                    }
-                },
-                x: {
-                    ticks: {
-                        font: {
-                            family: "'Open Sans', sans-serif"
-                        },
-                        color: '#666'
-                    },
-                    grid: {
-                        display: false
-                    }
-                }
-            },
-            animation: {
-                duration: 2000,
-                easing: 'easeInOutQuart'
+    numbers.forEach(number => {
+        const target = parseInt(number.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateNumber = () => {
+            current += increment;
+            if (current < target) {
+                number.textContent = Math.floor(current).toLocaleString();
+                requestAnimationFrame(updateNumber);
+            } else {
+                number.textContent = target.toLocaleString() + '+';
             }
-        }
+        };
+        
+        updateNumber();
     });
-});
-
-// ========================================
-// ANIMAÇÃO DOS NÚMEROS (CONTAGEM)
-// ========================================
-const animateValue = (obj, start, end, duration) => {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const value = Math.floor(progress * (end - start) + start);
-        obj.innerHTML = value;
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
-    };
-    window.requestAnimationFrame(step);
 };
 
-// Observador para animar números quando visíveis
+// Intersection Observer para animar elementos
 const observerOptions = {
-    threshold: 0.5,
-    rootMargin: "0px"
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const statNumbers = entry.target.querySelectorAll('.stat-number');
-            statNumbers.forEach(num => {
-                const target = parseInt(num.getAttribute('data-target'));
-                animateValue(num, 0, target, 2000);
-            });
-            observer.unobserve(entry.target);
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            
+            if (entry.target.classList.contains('stats-grid')) {
+                animateNumbers();
+            }
         }
     });
 }, observerOptions);
 
-const statsSection = document.querySelector('.stats-info');
-if (statsSection) {
-    observer.observe(statsSection);
-}
-
-// ========================================
-// FORMULÁRIO DE CONTATO
-// ========================================
-const contatoForm = document.getElementById('contatoForm');
-const formMessage = document.getElementById('formMessage');
-
-contatoForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Coletar dados do formulário
-    const formData = new FormData(contatoForm);
-    const nome = formData.get('nome');
-    const email = formData.get('email');
-    const assunto = formData.get('assunto');
-    const mensagem = formData.get('mensagem');
-    
-    // Validação simples
-    if (!nome || !email || !mensagem) {
-        formMessage.textContent = 'Por favor, preencha todos os campos obrigatórios.';
-        formMessage.className = 'form-message error';
-        return;
-    }
-    
-    // Validação de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        formMessage.textContent = 'Por favor, insira um email válido.';
-        formMessage.className = 'form-message error';
-        return;
-    }
-    
-    // Simular envio (em um caso real, você enviaria para um backend)
-    const submitButton = contatoForm.querySelector('.btn-submit');
-    const originalText = submitButton.innerHTML;
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    submitButton.disabled = true;
-    
-    // Simular delay de envio
-    setTimeout(() => {
-        formMessage.innerHTML = `
-            <i class="fas fa-check-circle"></i> 
-            <strong>Mensagem enviada com sucesso!</strong><br>
-            Obrigado, ${nome}! Entraremos em contato em breve.
-        `;
-        formMessage.className = 'form-message success';
-        contatoForm.reset();
-        submitButton.innerHTML = originalText;
-        submitButton.disabled = false;
-        
-        // Esconder mensagem após 5 segundos
-        setTimeout(() => {
-            formMessage.className = 'form-message';
-        }, 5000);
-    }, 1500);
+// Observar elementos
+document.querySelectorAll('.pilar-card, .info-box, .caso-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.6s ease';
+    observer.observe(el);
 });
 
-// ========================================
-// ANIMAÇÃO AO SCROLL (INTERSECTION OBSERVER)
-// ========================================
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.pilar-card, .caso-card, .galeria-item');
-    
-    const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                scrollObserver.unobserve(entry.target);
+document.querySelectorAll('.stats-grid').forEach(el => {
+    observer.observe(el);
+});
+
+// Flashcards
+function flipCard(card) {
+    card.classList.toggle('flipped');
+}
+
+// Gráfico Chart.js
+const ctx = document.getElementById('agroChart').getContext('2d');
+const agroChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Soja', 'Milho', 'Café', 'Açúcar', 'Carne Bovina', 'Algodão'],
+        datasets: [{
+            label: 'Produção Brasileira (milhões de toneladas)',
+            data: [152.5, 123.8, 3.7, 42.3, 10.2, 2.8],
+            backgroundColor: [
+                'rgba(45, 106, 79, 0.8)',
+                'rgba(82, 183, 136, 0.8)',
+                'rgba(64, 145, 108, 0.8)',
+                'rgba(116, 198, 157, 0.8)',
+                'rgba(183, 223, 201, 0.8)',
+                'rgba(216, 243, 220, 0.8)'
+            ],
+            borderColor: [
+                'rgba(45, 106, 79, 1)',
+                'rgba(82, 183, 136, 1)',
+                'rgba(64, 145, 108, 1)',
+                'rgba(116, 198, 157, 1)',
+                'rgba(183, 223, 201, 1)',
+                'rgba(216, 243, 220, 1)'
+            ],
+            borderWidth: 2,
+            borderRadius: 10
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    font: {
+                        family: "'Nunito', sans-serif",
+                        size: 12
+                    },
+                    color: '#1b4332'
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(45, 106, 79, 0.9)',
+                titleFont: {
+                    family: "'Nunito', sans-serif"
+                },
+                bodyFont: {
+                    family: "'Open Sans', sans-serif"
+                },
+                padding: 12,
+                cornerRadius: 8
             }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: {
+                    color: 'rgba(0,0,0,0.05)'
+                },
+                ticks: {
+                    font: {
+                        family: "'Open Sans', sans-serif"
+                    },
+                    color: '#1b4332'
+                }
+            },
+            x: {
+                grid: {
+                    display: false
+                },
+                ticks: {
+                    font: {
+                        family: "'Nunito', sans-serif"
+                    },
+                    color: '#1b4332'
+                }
+            }
+        }
+    }
+});
+
+// Calculadora de Pegada de Carbono
+function calcularPegada() {
+    const kmCarro = parseFloat(document.getElementById('kmCarro').value) || 0;
+    const consumoCarne = parseFloat(document.getElementById('consumoCarne').value) || 0;
+    const energia = parseFloat(document.getElementById('energia').value) || 0;
+    
+    // Cálculos aproximados (kg CO2)
+    const carbonoCarro = (kmCarro * 52) * 0.12; // km/semana * semanas/ano * kg CO2/km
+    const carbonoCarne = consumoCarne * 52 * 2.5; // refeições/semana * semanas * kg CO2/refeição
+    const carbonoEnergia = energia * 12 * 0.1; // kWh/mês * meses * kg CO2/kWh
+    
+    const totalToneladas = ((carbonoCarro + carbonoCarne + carbonoEnergia) / 1000).toFixed(2);
+    
+    document.getElementById('valorPegada').textContent = totalToneladas;
+    
+    let mensagem = '';
+    if (totalToneladas < 5) {
+        mensagem = 'Parabéns! Sua pegada de carbono está abaixo da média nacional. Continue assim!';
+    } else if (totalToneladas < 10) {
+        mensagem = 'Sua pegada está na média. Que tal adotar mais práticas sustentáveis?';
+    } else {
+        mensagem = 'Sua pegada está acima da média. Vamos juntos reduzir seu impacto ambiental?';
+    }
+    
+    document.getElementById('mensagemPegada').textContent = mensagem;
+    document.getElementById('resultadoCalculadora').style.display = 'block';
+    
+    // Scroll suave até o resultado
+    document.getElementById('resultadoCalculadora').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Quiz
+const perguntas = [
+    {
+        pergunta: "O que significa ILPF?",
+        opcoes: [
+            "Integração Lavoura-Pecuária-Floresta",
+            "Instituto de Lavradores e Produtores Florestais",
+            "Indústria de Laticínios e Produtos Frescos",
+            "Irrigação Localizada para Plantas Frutíferas"
+        ],
+        correta: 0
+    },
+    {
+        pergunta: "Qual porcentagem do PIB brasileiro representa o agronegócio?",
+        opcoes: [
+            "10%",
+            "25%",
+            "40%",
+            "60%"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "O que é Plantio Direto?",
+        opcoes: [
+            "Plantar apenas em linha reta",
+            "Técnica que não revolve o solo, mantendo palhada",
+            "Plantar diretamente sem sementes",
+            "Método de plantio em estufas"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "Qual a principal função dos polinizadores na agricultura?",
+        opcoes: [
+            "Apenas produzir mel",
+            "Controlar pragas naturalmente",
+            "Permitir a reprodução de 75% das culturas alimentares",
+            "Decorar as plantações"
+        ],
+        correta: 2
+    },
+    {
+        pergunta: "O que produz 70% dos alimentos que chegam à mesa dos brasileiros?",
+        opcoes: [
+            "Grandes empresas multinacionais",
+            "Agricultura familiar",
+            "Importações",
+            "Hortas urbanas"
+        ],
+        correta: 1
+    }
+];
+
+let perguntaAtual = 0;
+let pontuacao = 0;
+let respondidas = new Set();
+
+function carregarPergunta() {
+    if (perguntaAtual >= perguntas.length) {
+        mostrarResultado();
+        return;
+    }
+    
+    const pergunta = perguntas[perguntaAtual];
+    document.getElementById('perguntaTexto').textContent = `${perguntaAtual + 1}. ${pergunta.pergunta}`;
+    
+    const optionsContainer = document.getElementById('quizOptions');
+    optionsContainer.innerHTML = '';
+    
+    pergunta.opcoes.forEach((opcao, index) => {
+        const button = document.createElement('button');
+        button.className = 'quiz-option';
+        button.textContent = opcao;
+        button.onclick = () => verificarResposta(index, button);
+        optionsContainer.appendChild(button);
     });
     
-    elements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        scrollObserver.observe(el);
-    });
-};
+    // Atualizar barra de progresso
+    const progresso = ((perguntaAtual) / perguntas.length) * 100;
+    document.getElementById('progressBar').style.width = `${progresso}%`;
+}
 
-// Inicializar animações
-document.addEventListener('DOMContentLoaded', animateOnScroll);
+function verificarResposta(index, button) {
+    if (respondidas.has(perguntaAtual)) return;
+    
+    respondidas.add(perguntaAtual);
+    const correta = perguntas[perguntaAtual].correta;
+    const opcoes = document.querySelectorAll('.quiz-option');
+    
+    if (index === correta) {
+        button.classList.add('correct');
+        pontuacao++;
+    } else {
+        button.classList.add('incorrect');
+        opcoes[correta].classList.add('correct');
+    }
+    
+    // Desabilitar todas as opções
+    opcoes.forEach(op => op.style.pointerEvents = 'none');
+    
+    // Próxima pergunta após 1.5s
+    setTimeout(() => {
+        perguntaAtual++;
+        carregarPergunta();
+    }, 1500);
+}
 
-// ========================================
-// SMOOTH SCROLL PARA LINKS INTERNOS
-// ========================================
+function mostrarResultado() {
+    document.getElementById('quizQuestion').style.display = 'none';
+    document.querySelector('.quiz-progress').style.display = 'none';
+    
+    const resultDiv = document.getElementById('quizResult');
+    resultDiv.style.display = 'block';
+    document.getElementById('scoreValue').textContent = pontuacao;
+    
+    let mensagem = '';
+    if (pontuacao === 5) {
+        mensagem = 'Excelente! Você é um expert em sustentabilidade! 🌱';
+    } else if (pontuacao >= 3) {
+        mensagem = 'Muito bom! Você conhece bem o assunto! Continue aprendendo! ';
+    } else {
+        mensagem = 'Que tal revisar o conteúdo e tentar novamente? 📚';
+    }
+    
+    document.getElementById('scoreMessage').textContent = mensagem;
+}
+
+function reiniciarQuiz() {
+    perguntaAtual = 0;
+    pontuacao = 0;
+    respondidas.clear();
+    
+    document.getElementById('quizQuestion').style.display = 'block';
+    document.querySelector('.quiz-progress').style.display = 'block';
+    document.getElementById('quizResult').style.display = 'none';
+    
+    carregarPergunta();
+}
+
+// Inicializar quiz
+carregarPergunta();
+
+// Formulário de Contato
+document.getElementById('contatoForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+    
+    // Simulação de envio
+    const btn = this.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    btn.disabled = true;
+    
+    setTimeout(() => {
+        alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso. Entraremos em contato pelo email ${email} em breve!`);
+        
+        this.reset();
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }, 2000);
+});
+
+// Smooth scroll para links internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 80; // Considerar navbar fixa
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     });
 });
 
-// ========================================
-// LAZY LOADING DE IMAGENS
-// ========================================
-if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-        img.src = img.dataset.src;
+// Lazy loading para imagens
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src || img.src;
+                img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
     });
-} else {
-    // Fallback para browsers que não suportam lazy loading nativo
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-    document.body.appendChild(script);
+    
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        imageObserver.observe(img);
+    });
 }
 
-// ========================================
-// EFEITO PARALLAX SUAVE
-// ========================================
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
-// ========================================
-// NEWSLETTER FORM (FOOTER)
-// ========================================
-const newsletterForm = document.querySelector('.newsletter-form');
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = newsletterForm.querySelector('input[type="email"]').value;
-        
-        if (email) {
-            alert(`Obrigado por se inscrever! Em breve você receberá novidades do Agrinho no email: ${email}`);
-            newsletterForm.reset();
+// Efeito de digitação no hero (opcional)
+const heroTitle = document.querySelector('.hero h1');
+if (heroTitle) {
+    const text = heroTitle.textContent;
+    heroTitle.textContent = '';
+    let i = 0;
+    
+    const typeWriter = () => {
+        if (i < text.length) {
+            heroTitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
         }
-    });
+    };
+    
+    // Iniciar após 1 segundo
+    setTimeout(typeWriter, 1000);
 }
-
-// ========================================
-// ACESSIBILIDADE - NAVEGAÇÃO POR TECLADO
-// ========================================
-document.addEventListener('keydown', (e) => {
-    // Fechar menu mobile com ESC
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        const icon = navToggle.querySelector('i');
-        icon.classList.add('fa-bars');
-        icon.classList.remove('fa-times');
-    }
-});
-
-// ========================================
-// CONSOLE MESSAGE (BÔNUS)
-// ========================================
-console.log('%c🌱 Agrinho - Agro Forte, Futuro Sustentável', 'color: #2d6a4f; font-size: 20px; font-weight: bold;');
-console.log('%cDesenvolvido com ❤️ para educação ambiental', 'color: #52b788; font-size: 12px;');
